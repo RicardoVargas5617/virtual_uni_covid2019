@@ -355,7 +355,7 @@
                 return a.text == b.text ? 0 : a.text < b.text ? -1 : 1
             }));
 
-            // Reestablecimiento de la opci¨®n seleccionada previamente
+            // Reestablecimiento de la opciï¿½ï¿½n seleccionada previamente
             $(this).val('');
         });
     }

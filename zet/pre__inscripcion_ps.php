@@ -4,14 +4,21 @@
 	$departamento = '03';
 	$provincia = '02';
 	$distrito = '01';
-	$vsqlescuela = "select estructura, descripcion from mae_estructura order by descripcion";
+	// $vsqlescuela = "select estructura, descripcion from mae_estructura order by descripcion";
+	// $vsqlmodalidadadmision = "select modalidadadmision, descripcion from adm_modalidadadmision where activo=1 order by descripcion";
+	// $vsqlsexo = "select sexo, descripcion from adm_sexo order by descripcion";
+	// $vsqltipocolegio = "select tipocolegio, descripcion from adm_tipocolegio order by descripcion";
+	// $vsqldepartamento="SELECT departamento,descripcion FROM mae_ubigeo WHERE provincia='00' AND distrito='00' order by 2";
+	// $vsqlprovincia="SELECT provincia,descripcion FROM mae_ubigeo WHERE departamento='$departamento' AND provincia<>'00' AND distrito='00' order by 2";
+    // $vsqldistrito="SELECT distrito,descripcion FROM mae_ubigeo WHERE departamento='$departamento' AND provincia='$provincia' AND distrito<>'00' order by 2";
+    
+    $vsqlescuela = "select estructura, descripcion from mae_estructura where activo=1 order by descripcion";
 	$vsqlmodalidadadmision = "select modalidadadmision, descripcion from adm_modalidadadmision where activo=1 order by descripcion";
 	$vsqlsexo = "select sexo, descripcion from adm_sexo order by descripcion";
 	$vsqltipocolegio = "select tipocolegio, descripcion from adm_tipocolegio order by descripcion";
 	$vsqldepartamento="SELECT departamento,descripcion FROM mae_ubigeo WHERE provincia='00' AND distrito='00' order by 2";
 	$vsqlprovincia="SELECT provincia,descripcion FROM mae_ubigeo WHERE departamento='$departamento' AND provincia<>'00' AND distrito='00' order by 2";
 	$vsqldistrito="SELECT distrito,descripcion FROM mae_ubigeo WHERE departamento='$departamento' AND provincia='$provincia' AND distrito<>'00' order by 2";
-	
 
 
 	$pasa = 'Si';
@@ -105,10 +112,10 @@
             </strong>        
         </td>
         <td>
-        	<?php //MostrarComboZet("cboModalidad",$vsqlmodalidadadmision,$modalidad,$pasa); ?>
-            <select name="cboModalidad" id="cboModalidad">
+        	<?php MostrarComboZet("cboModalidad",$vsqlmodalidadadmision,$modalidad,$pasa); ?>
+            <!-- <select name="cboModalidad" id="cboModalidad">
                 <option value="02">1. EXTRAORDINARIO- PRIMERA SELECCION</option>
-            </select>
+            </select> -->
         </td>    
     </tr>  
     <tr>

@@ -188,6 +188,28 @@ function mostrarfoto_postulante_pfd($numerodocumento)
 		return $fotex;
 	}
 
+	//Para OCA
+	function mostrarfoto_firma_existe($codigo){
+
+		$ruta = GL_DIR_FS_APP;
+		$file = trim($ruta).'foto_ing_firma/'.$codigo.".jpg";
+		$file1 = trim($ruta).'foto_ing_firma/'.$codigo.".JPG";
+	
+		if (file_exists($file))
+			{
+				$mostrarfoto_firma_existe=1;
+			}
+		elseif (file_exists($file1))
+			{
+				$mostrarfoto_firma_existe=1;
+			}		
+		else
+			{
+				$mostrarfoto_firma_existe=0;	
+			}
+		return $mostrarfoto_firma_existe;
+	}
+
 function mostrarfoto_voucher_existe($codigo)
 	{
 		$ruta = GL_DIR_FS_APP;
