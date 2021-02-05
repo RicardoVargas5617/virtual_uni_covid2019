@@ -10,7 +10,7 @@
 	include_once(GL_DIR_FS_APP.'funciones/admi_con.php');
 	include_once(GL_DIR_FS_APP.'funciones/admi_fun.php');
 	$cn = conectar();
-	
+
 	mysqli_query($cn,"SET CHARACTER SET utf8");
 	mysqli_query($cn,"SET NAMES utf8");
 
@@ -38,12 +38,12 @@
 	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 	<html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-	
+
     <title><?php echo GL_COMPANY?></title>
 	<link rel="icon" href="<?php echo GL_DIR_WS_HTTP_APP?>zet/logo.ico">
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 	<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $vcolacion?>"/>
-	
+
 	<!-- Revisar -->
 	<link href="<?php echo GL_DIR_WS_HTTP_APP?>css/font-awesome.css" rel="stylesheet" type="text/css" />
 	<link href="<?php echo GL_DIR_WS_HTTP_APP?>css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -51,7 +51,7 @@
 	<link href="<?php echo GL_DIR_WS_HTTP_APP?>css/admin.css" rel="stylesheet" type="text/css" />
 	<link href="<?php echo GL_DIR_WS_HTTP_APP?>plugins/morris/morris.css" rel="stylesheet" />
 	<!-- Fin Revisar -->
-	
+
 	<link href="<?php echo GL_DIR_WS_HTTP_APP?>css/font-awesome-animation.min.css" rel="stylesheet" type="text/css" />
 	<link href="<?php echo GL_DIR_WS_HTTP_APP?>css/ajaxchosen.css" rel="stylesheet" type="text/css" />
 	<link href="<?php echo GL_DIR_WS_HTTP_APP?>css/chosen.min.css" rel="stylesheet" type="text/css" />
@@ -59,7 +59,7 @@
 	<link href="<?php echo GL_DIR_WS_HTTP_APP?>plugins/kalendar/kalendar.css" rel="stylesheet">
 	<link href="<?php echo GL_DIR_WS_HTTP_APP?>plugins/toastr/toastr.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="<?php echo GL_DIR_WS_HTTP_APP?>plugins/scroll/nanoscroller.css">
-	
+
 	<link href="<?php echo GL_DIR_WS_HTTP_APP?>plugins/lightbox/css/lightbox.css" rel="stylesheet" />
 	<link href="<?php echo GL_DIR_WS_HTTP_APP?>plugins/dropzone/dropzone.css" rel="stylesheet">
 	<link href="<?php echo GL_DIR_WS_HTTP_APP?>plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" />
@@ -133,14 +133,14 @@
       <div class="logo" style="display:block">
       <img src="<?php echo GL_DIR_WS_HTTP_APP?>imageneszet/unata.png" alt="Logo Instituci&oacute;n>
       </div>
-   
+
       <div class="small_logo" style="display:none">
       <img src="<?php echo GL_DIR_WS_HTTP_APP?>images/logo_izquierda.png" alt="r-logo" /></div>
     </div>
     <!--\\\\\\\ brand end \\\\\\-->
     <div class="header_top_bar">
       <div style="color:red" class="msj-plagio">
-        
+
       </div>
       <!--\\\\\\\ header top bar start \\\\\\-->
       <a href="javascript:void(0);" class="menutoggle"> <i class="fa fa-bars"></i> </a>
@@ -155,45 +155,46 @@
 
         </div>
         <div class="top_right_bar" style="width: 800px;">
-        
-        <div class="user_admin dropdown" style="width: 380px;"> <a href="javascript:void(0);" data-toggle="dropdown">		
+
+        <div class="user_admin dropdown" style="width: 380px;"> <a href="javascript:void(0);" data-toggle="dropdown">
         	<span class="user_adminname">MODULO: <?php echo $nombredominio; ?></span> <b class="caret"></b> </a>
           <ul class="dropdown-menu" style="width: 250px;">
             <div class="top_pointer"></div>
-            <?php 
+            <?php
 				#while($row=mysqli_fetch_array($rs2,MYSQL_ASSOC))
 				while ($rsjk2= mysqli_fetch_row($rs2))
 				{
 			?>
-            	<li> 
+            	<li>
             		<a href="<?php echo GL_DIR_WS_HTTP_APP?>menu.php?do=<?php echo $rsjk2[0]?>">
                     <i class="fa fa-cogs"></i><?php echo $rsjk2[1]?>
-            		</a> 
+            		</a>
             	</li>
 			<?php }
 			?>
           </ul>
         </div>
-        
-        
+
+
         <div class="user_admin dropdown" style="width: 320px;"> <a href="javascript:void(0);" data-toggle="dropdown"><img src="<?php echo GL_DIR_WS_HTTP_APP?>images/siga.png" />
          <span class="user_adminname nombre_unajma">
-		  <?php 
+		  <?php
 		  	if (strlen(trim($nombrecompleto))<30){
 				echo $nombrecompleto;
 			}
 			else
 			{
-		  		echo substr($nombrecompleto,0,25).'...'; 
+		  		echo substr($nombrecompleto,0,25).'...';
 			}
 		  ?>
 		  </span> <b class="caret"></b> </a>
           <ul class="dropdown-menu" style="width: 250px;">
             <div class="top_pointer"></div>
-            <li> <a href="#"><i class="fa fa-id-card"></i><span class="dni_unajma"><?=$_SESSION["persona"]?></span></a></li>
-            <li> <a href="#"><i class="fa fa-id-card"></i><span class="dni_unajma"><?=$_SESSION["usuario"]?></span></a></li>
+            <li> <a href="#"><i class="fa fa-id-card"></i><span class="dni_unajma dni_unajma_n1"><?=$_SESSION["persona"]?></span></a></li>
+            <li> <a href="#"><i class="fa fa-id-card"></i><span class="dni_unajma dni_unajma_n2"><?=$_SESSION["usuario"]?></span></a></li>
             <li> <a href="#" onclick="cambioclave()" data-clave="true" data-target="#changeModal" data-toggle="modal" ><i class="fa fa-key"></i> Cambiar Contrase&ntilde;a</a> </li>
             <li> <a href="<?php echo GL_DIR_WS_HTTP_APP?>zet/index.php"><i class="fa fa-power-off"></i> Cerrar sesi&oacute;n</a> </li>
+
           </ul>
         </div>
 
@@ -212,11 +213,11 @@
 
       <!--\\\\\\\left_nav start \\\\\\-->
       <div class="left_nav_slidebar">
-          <?php 
+          <?php
 		  	require_once("opciones.php");
 		  ?>
       </div>
-      
+
     </div>
     <!--\\\\\\\left_nav end \\\\\\-->
     <div class="contentpanel">
@@ -239,7 +240,7 @@
 
         <div class="pull-left">
           <ol class="breadcrumb">
-              <?php 
+              <?php
 			  		foreach ($navarray as $key=>$value){
 			?>
             <li <?php echo ($cantidad==$key+1)?' class="active"':''?>>
@@ -255,7 +256,7 @@
         <?php }?>
 
       <div class="container clear_both padding_fix container-fluid" id="dvAreaTrabajo">
-      	<?php 
+      	<?php
 			require_once("contenido.php");
 		?>
     </div>
@@ -299,11 +300,11 @@
 <script src="<?php echo GL_DIR_WS_HTTP_APP?>plugins/kalendar/edit-kalendar.js" type="text/javascript"></script>
 
 <script src="<?php echo GL_DIR_WS_HTTP_APP?>plugins/sparkline/jquery.sparkline.js" type="text/javascript"></script>
-<script src="<?php echo GL_DIR_WS_HTTP_APP?>plugins/sparkline/jquery.customSelect.min.js" ></script> 
-<script src="<?php echo GL_DIR_WS_HTTP_APP?>plugins/sparkline/sparkline-chart.js"></script> 
+<script src="<?php echo GL_DIR_WS_HTTP_APP?>plugins/sparkline/jquery.customSelect.min.js" ></script>
+<script src="<?php echo GL_DIR_WS_HTTP_APP?>plugins/sparkline/sparkline-chart.js"></script>
 <!--<script src="<?php echo GL_DIR_WS_HTTP_APP?>plugins/sparkline/easy-pie-chart.js"></script>
 <script src="<?php echo GL_DIR_WS_HTTP_APP?>plugins/morris/morris.min.js" type="text/javascript"></script> -->
-<script src="<?php echo GL_DIR_WS_HTTP_APP?>plugins/morris/raphael-min.js" type="text/javascript"></script>  
+<script src="<?php echo GL_DIR_WS_HTTP_APP?>plugins/morris/raphael-min.js" type="text/javascript"></script>
 <!--<script src="<?php echo GL_DIR_WS_HTTP_APP?>plugins/morris/morris-script.js"></script> -->
 
   <script src="<?php echo GL_DIR_WS_HTTP_APP?>plugins/validation/jquery.validate.min.js"></script>
@@ -333,7 +334,7 @@
 <?php
 	#if($msgerror!='')
 	#{
-		echo '		
+		echo '
 		$("#dvmensaje").html(\'<div style="color: #FFFFFF;background: #9A0707;padding: 12px;"><i class="fa fa-exclamation-triangle faa-shake animated"></i><div style="font-size: 45px;">'.$nerror.'</div><h2 style="font-size: 20px;" class="bounceInLeft animated">'.str_replace("'","\'",$msgerror).'</h2></div>\');';
 	#}
 ?>
@@ -409,7 +410,7 @@
            }
           });
           event.preventDefault();
-          
+
         });
         $( "a[rel=link]" ).click(function( event ) {
             var url = $(this).attr('href');
@@ -448,8 +449,8 @@ function cambioclave(){
         }
         $('.chosen-select').chosen();
         $('.input-daterange').datepicker();
-        function ventanaSecundaria (URL){ 
-   window.open(URL,"","width=800,height=500,scrollbars=yes") 
+        function ventanaSecundaria (URL){
+   window.open(URL,"","width=800,height=500,scrollbars=yes")
 }
         function recarga(form)
         {

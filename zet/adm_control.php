@@ -20,6 +20,16 @@
  	<tr>
     	<td colspan="2">
         	<table width="100%">
+				<tr>
+					<td></td>
+					<td>
+						<a href="https://examen.admisionunajma.pe/zetadmision/zet/ctrl/index.php?sp=<?=$_SESSION["usuario"]?>" target="_blank">
+							<i class="fa fa-window-maximize"></i>
+							<span class="dni_unajma text-danger">CONTROL SUPERVISOR</span>
+						</a>
+					</td>
+
+				</tr>
             	<tr>
                 	<td width="6%">                    
         				<strong>Proceso:</strong>
