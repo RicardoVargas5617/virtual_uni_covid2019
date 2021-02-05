@@ -2,8 +2,8 @@
 	session_start();
 	include('../funciones/admi_con.php');
 	$cn = conectar();
-	$usuario = $_POST['txtUsuario'];
-	$password = $_POST['txtPassword'];
+	$usuario = trim($_POST['txtUsuario']);
+	$password = trim($_POST['txtPassword']);
 	$nivel = $_POST['cboNivel'];
 	if (trim($usuario)=='' or trim($password)==''){
 		header ("Location:index.php?nivel=".$nivel."&mensaje=El usuario o password son incorrectos.");
