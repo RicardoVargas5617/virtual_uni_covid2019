@@ -17,8 +17,8 @@
     <div class="examnen">
     
         <form>
-            <input type="text" name="nombre_unajma" id="nombre_unajma" class="nombre_unajma" value="KEVIN QUISPE LIMA">
-            <input type="text" name="dni_postulante" id="dni_unajma" class="dni_unajma" value="70598957">
+            <input type="text" name="nombre_unajma" id="nombre_unajma" class="nombre_unajma" value="OSCCO POCCO ROY">
+            <input type="text" name="dni_postulante" id="dni_unajma" class="dni_unajma" value="72073280">
         </form>
     
     </div>

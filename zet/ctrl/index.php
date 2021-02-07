@@ -9,7 +9,7 @@
     $res = $obj->traer_estudiantes($dni_supervisor, '0011');
 
     //var_dump($res['data']);
-
+    //var_dump($obj->Devuelve_procesoActual());
 
 ?>
 
@@ -39,92 +39,208 @@
     <header class="bg-secondary py-2">
     </header>
 
-    <nav class="container bg-light py-3">
-        <div class="row">
-            <div class="col-md-2">
-                <input type="button" value="Recargar Lista" onclick="Obtener_postulantes_reg1();" class="btn btn-outline-dark"> 
-            </div>
-            <div class="col-md-10 text-center lead">
-                <h3>SUPERVISION UNAJMA EXAMEN VIRTUAL</h3>
-            </div>
-        </div>
-    </nav>
+    
 
     <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <h3>LISTA DE ESTUDIANTES</h3>
-                <div class="overflow-auto contenido">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">DNI</th>
-                                <th scope="col">ESTUDIANTE</th>
-                                <th scope="col"># VECES</th>
-                                <th scope="col">OPCIONES</th>
-                            </tr>
-                        </thead>
-                        <tbody class="result_reg1 small">
-                            <?php
-                                $num_es = 0;
-                                foreach ($res['data'] as $element) {
-                                    # code...
-                                    $num_es++;
-                                    echo "
-                                        <tr>
-                                            <th scope='row'>{$num_es}</th>
-                                            <td>{$element[numerodocumento]}</td>
-                                            <td>{$element[nombrecompleto]}</td>
-                                            <td>
-                                                <button type='button' class='btn btn-primary'>
-                                                    Cambios <span class='badge badge-danger'>0</span>
-                                                    <span class='sr-only'>veces cambios ventana</span>
-                                                </button>
-                                            </td>
-                                            <td><button type='button' class='btn btn-outline-info' onclick='alert(\"click\");'>Detalles</button></td>
-                                        </tr>
-                                    ";
-                                }
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
-                
-            </div>
-            <div class="col-md-4">
-                <h3>DETALLES DE ESTUDIANTES</h3>
-                <div class="overflow-auto contenido">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">FECHA</th>
-                                <th scope="col">TIPO</th>
-                            </tr>
-                        </thead>
-                        <tbody class="result_reg2 small">
-                            <tr>
-                                <th scope='row'>1</th>
-                                <td>12/13/20 3:00:00</td>
-                                <td>
-                                    <span class="badge badge-info">1</span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <h3></h3>
+        <!-- <h3></h3>
         <div class="">
                 
+        </div> -->
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">CONTROL PROGRAMAS</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">CONTROL EXAMEN</a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">APOYO</a>
+        </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <!-- CONTROL PROGRAMAS -->
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                
+    <div class="row">
+        <div class="col-md-7">
+            <div class="text-right">
+                <small class="badge badge-light">LISTA DE ESTUDIANTES</small>
+            </div>
+            <div class="overflow-auto contenido">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">DNI</th>
+                            <th scope="col">ESTUDIANTE</th>
+                            <th scope="col">OPCIONES</th>
+                        </tr>
+                    </thead>
+                    <tbody class=" small">
+                        <?php
+                            $num_es = 0;
+                            foreach ($res['data'] as $element) {
+                                # code...
+                                $num_es++;
+                                echo "
+                                    <tr>
+                                        <th scope='row'>{$num_es}</th>
+                                        <td>".$element['numerodocumento']."</td>
+                                        <td>".$element['nombrecompleto']."</td>
+                                        <td><button type='button' class='btn btn-outline-info' onclick='ImprimirProgramas_postulante(\"".$element['numerodocumento']."\");'>Detalles</button></td>
+                                    </tr>
+                                ";
+                            }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <div class="text-right">
+                <small class="badge badge-light">PROGRAMAS INSTALADOS</small>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">PROGRAMAS ABIERTOS EN LA PC</a>
+                    <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">PROGRAMAS INADECUADOS ABIERTOS</a>
+                    <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">PROCESOS INADECUADOS EN SEGUNDO PLANO</a>
+                    <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">TODOS LOS PROCESOS</a>
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="tab-content" id="v-pills-tabContent">
+                        <!--  -->
+                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                            <div id="programas_btn1" class="text-center text-uppercase bg-secondary text-white text-monospace rounded">
+                                ...
+                            </div>
+                        </div>
+                        <!--  -->
+                        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                            <div id="programas_btn2" class="text-center text-uppercase bg-secondary text-white text-monospace rounded">
+                                ...
+                            </div>
+                        </div>
+                        <!--  -->
+                        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                            <div id="programas_btn3" class="text-center text-uppercase bg-secondary text-white text-monospace rounded">
+                                ...
+                            </div>
+                        </div>
+                        <!--  -->
+                        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                            <div id="programas_btn4" class="text-center text-uppercase bg-secondary text-white text-monospace rounded">
+                                ...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>              
+
+
+            </div>
+            <!-- CONTROL EXAMEN -->
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                
+<nav class="container bg-light py-3">
+    <div class="row">
+        <div class="col-md-2">
+            <input type="button" value="Recargar Lista" onclick="Obtener_postulantes_reg1();" class="btn btn-outline-dark"> 
+        </div>
+        <div class="col-md-10 text-center lead">
+            <h3>SUPERVISION UNAJMA EXAMEN VIRTUAL</h3>
         </div>
     </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="text-right">
+                <small class="badge badge-light">LISTA DE ESTUDIANTES</small>
+            </div>
+            <div class="overflow-auto contenido">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">DNI</th>
+                            <th scope="col">ESTUDIANTE</th>
+                            <th scope="col"># VECES</th>
+                            <th scope="col">OPCIONES</th>
+                        </tr>
+                    </thead>
+                    <tbody class="result_reg1 small">
+                        <?php
+                            $num_es = 0;
+                            foreach ($res['data'] as $element) {
+                                # code...
+                                $num_es++;
+                                echo "
+                                    <tr>
+                                        <th scope='row'>{$num_es}</th>
+                                        <td>".$element['numerodocumento']."</td>
+                                        <td>".$element['nombrecompleto']."</td>
+                                        <td>
+                                            <button type='button' class='btn btn-primary'>
+                                                Cambios <span class='badge badge-danger'>0</span>
+                                                <span class='sr-only'>veces cambios ventana</span>
+                                            </button>
+                                        </td>
+                                        <td><button type='button' class='btn btn-outline-info' onclick='alert(\"click\");'>Detalles</button></td>
+                                    </tr>
+                                ";
+                            }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="text-right">
+                <small class="badge badge-light">DETALLES DE ESTUDIANTES</small>
+            </div>
+            <div class="overflow-auto contenido">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">FECHA</th>
+                            <th scope="col">TIPO</th>
+                        </tr>
+                    </thead>
+                    <tbody class="result_reg2 small">
+                        <tr>
+                            <th scope='row'>1</th>
+                            <td>ejemplo 12/13/20 3:00:00</td>
+                            <td>
+                                <span class="badge badge-info">1</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+            </div>
+            <!-- APOYO -->
+            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                REINICIA TODO. <br>
+                Atte. LOS DE SISTEMAS.
+            </div>
+        </div>
+    </div>
+
 
 
 
@@ -150,8 +266,8 @@
 
         //console.log(datos_origen_post);
         array_data_postulante();
-        //console.log(dni_postulantes);
-        //console.log(data_postulante);
+        console.log(dni_postulantes);
+        console.log(data_postulante);
         
 
         //FUNCIONES ------------------------------
@@ -210,7 +326,11 @@
                         `; 
                         
                     });
-                    reg1_html.innerHTML = pl_html;
+                    if(num_es != 0){
+                        reg1_html.innerHTML = pl_html;
+                    }else{
+                        alert("Ningun postulante salió del examen");
+                    }
 
                 }, URL_AJAX)
             }
@@ -228,6 +348,42 @@
                     }
                 });
                 return null;
+            }
+
+
+            //mostrar programas del postulante
+            function ImprimirProgramas_postulante(dni){
+                //alert("tu dni es " + $dni);
+                let btn1 = document.querySelector("#programas_btn1");
+                let btn2 = document.querySelector("#programas_btn2");
+                let btn3 = document.querySelector("#programas_btn3");
+                let btn4 = document.querySelector("#programas_btn4");
+                let peticion = 'CP';
+                fetchKev('POST',{peticion, dni}, function(rs){
+                    let x = rs[0];
+                    console.log(x);
+                    //console.log(x.length);
+                    //console.log(listProgramToArray(x.v_abiertas))
+                    if(rs.length != 0){
+                        btn1.innerHTML = x.tp_enproceso; // Todas las ventanas abiertas
+                        btn2.innerHTML = x.v_abiertas; // ventanas de programas remotos invalidas abiertas
+                        btn3.innerHTML = x.pin_enproceso; // procesos ejecutandose en segundo plano de Programas invalidos
+                        btn4.innerHTML = x.tp_instalados; // Lista Todos los procesos 
+                    }else{
+                        alert("No exiten registros del postulante identificado con dni " + dni);
+                        btn1.innerHTML = "...";
+                        btn2.innerHTML = "...";
+                        btn3.innerHTML = "...";
+                        btn4.innerHTML = "...";
+                    }
+                }, URL_AJAX);
+
+            }
+
+            //Convierte el resultado cadena de los porcesos, programas postulante, en un array. 
+            function listProgramToArray(programListDB){
+                
+                return programListDB.split('<br>');
             }
 
         //FETCH MODIFICADOS

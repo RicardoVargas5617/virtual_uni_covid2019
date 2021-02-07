@@ -49,7 +49,7 @@
                     <tr>
                     <td align="center">
                     <img src="../images/logo.png" alt="Logo" width="100"/>
-                    <strong>UNIVERSIDAD NACIONAL JOS&Eacute; MAR&Iacute;A ARGUEDAS</strong>
+                    <strong>UNIVERSIDAD NACIONAL JOSÉ MARÍA ARGUEDAS</strong>
                     </td>
                     </tr>
                     </table>
@@ -58,7 +58,7 @@
 <br>
    
 <form action="pregrabar.php" method="post" id="grado" name="frmFotoGrado" enctype="multipart/form-data" onsubmit="return true;" >
-   <center><h3>INSCRIPCIÓN EXAMEN PRIMERA SELECCIÓN ADMISIÓN UNAJMA</h3><h4 style="font-size:22px;">2021 - I</h4> </center> 
+   <center><h3>INSCRIPCIÓN EXAMEN <u>EXTRAORDINARIO</u> ADMISIÓN UNAJMA</h3><h4 style="font-size:22px;">2021 - I</h4> </center> 
 <table width="760" border="0" align="center" cellpadding="3" cellspacing="0" class="table-borderless">
 
 	<tr>
