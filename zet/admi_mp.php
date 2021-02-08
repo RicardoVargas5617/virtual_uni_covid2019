@@ -1,3 +1,5 @@
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 <?php 
 	include_once(GL_DIR_FS_APP.'funciones/admi_fun_admision.php');
 	$cn_zyz = conectar();
@@ -338,106 +340,108 @@ countdown("<?php echo $fechafinal?>","hora","Muchas Gracias");
 
 
 
+
+<!-- SCRIPC FOR SUPR CONTROL UNI DASDAS DA SD INIT -->
+
 <script>
 
-	console.log("HOLA MUNDO . . . ")
+//ALERT SWEETT
+function mensaje_al_postulante(){
+	Swal.fire({
+		title: 'No salga del examen!',
+		text: '¿Deseas continuar con tu examen?',
+		icon: 'warning',
+		confirmButtonText: 'ACEPTAR, ya no lo volveré a hacer.',
+		footer: '<a href>Se registró una salida del postulate en el registro de la base de datos</a>'
+	})
+}
 
-	//CÓDIGO SUPERV ---------- EMANE UNAJMA 2020 ----------------------------------------------------------------
+//CÓDIGO SUPERVISION ---------- EXAMEN UNAJMA - 2021 ----------------------------------------------------------------
 
-	let dni;
-	let nombre;
-	let veces = 0 ; 
-	let contador = 0;
-	let msj_plagio="";
+let dni;
+let nombre;
+let veces = 0 ; 
+let contador = 0;
+let contador_p = 0; // contador cambio pestaña
+let msj_plagio="";
 
-	//SI CAMBIA DE PESTAÑA EN LA MISMA PÁGINA
-	function handleVisibilityChange() {
+const URL_AJAX = "../ajax_p.php"
+
+//SI CAMBIA DE PESTAÑA EN LA MISMA PÁGINA ---------------------------------------------------------------------------
+function handleVisibilityChange() {
+	if(contador_p >= 1){
 		if (document.hidden) {			
-			//console.log('CAMBIÓ LA PÁGINA')
-			
-			console.log("CAMBIÓ DE PESTAÑA");
-			// alert("NO SALGA DE SU EXAMEN!! TP1")
 			msj_plagio = document.querySelector(".msj-plagio");
-
-
-			URL_AJAX = "../ajax_p.php";
-
-			// dni = document.querySelector(".dni").value;
-			dni = "70598957";
+			dni = document.querySelector(".dni_unajma_n2").innerHTML.trim();
 			nombre = document.querySelector(".nombre_unajma").innerHTML.trim();
+			//nombre = document.querySelector(".nombre_unajma").innerHTML.trim();
 			tipo=1;
-			console.log(nombre)
-			fetchKev('post',{persona:'kevin',dni,nombre,tipo},function(x){
+			fetchKev('post',{proceso:'0017',dni,nombre,tipo},function(x){
 				console.log(x)
-				msj_plagio.innerHTML = "NO SALGA DE SU EXAMEN!! TP1";
-			}, URL_AJAX)
 
+				msj_plagio.innerHTML = "NO SALGA DE SU EXAMEN!! TP1";
+				mensaje_al_postulante();
+			}, URL_AJAX)
 		} else  {
 			// startSimulation();
 			//console.log('NO CAMBIO LA PÁGINA')
 		}
 	}
-	document.addEventListener("visibilitychange", handleVisibilityChange, false);
+	contador_p++;
+
+}
+document.addEventListener("visibilitychange", handleVisibilityChange, false);
 
 
 
-	//SI MINIMIZA O CAMBIA EL NAVEGADOR
-	setInterval( checkPostulanteNav, 1000);
-        function checkPostulanteNav() {
-            
-            if ( document.hasFocus() ) {
-                // console.log('EN EL EXAMNE')
-                // 3 SEGUNDOS FUERA DEL EXAMEN
-                if(contador>=2){
+//SI MINIMIZA O CAMBIA EL NAVEGADOR -----------------------------------------------------------------------------------
+setInterval( checkPostulanteNav, 1000);
+function checkPostulanteNav() {
+	if ( document.hasFocus() ) {
+		// 3 SEGUNDOS FUERA DEL EXAMEN
+		if(contador>=2){
+			msj_plagio = document.querySelector(".msj-plagio");
+			dni = document.querySelector(".dni_unajma_n2").innerHTML.trim();
+			nombre = document.querySelector(".nombre_unajma").innerHTML.trim();
+			//nombre = document.querySelector(".nombre_unajma").innerHTML.trim();
+			tipo = 2;
+			fetchKev('post',{proceso:'0017',dni,nombre,tipo},function(x){
+				console.log(x)
 
-					// alert("SALIÓ DEL NAVEGADOR")
-					// alert("NO SALGA DE SU EXAMEN!! TP2")
-                    console.log("SALIÓ DEL NAVEGADOR")
-					msj_plagio = document.querySelector(".msj-plagio");
-                    //ENVIAR DATOS
-                    URL_AJAX = "../ajax_p.php";
-
-					// dni = document.querySelector(".dni").value;
-					dni = "70598957";
-					nombre = document.querySelector(".nombre_unajma").innerHTML.trim();
-					tipo = 2;
-					console.log(nombre)
-					fetchKev('post',{persona:'kevin',dni,nombre,tipo},function(x){
-						console.log(x)
-						msj_plagio.innerHTML = "NO SALGA DE SU EXAMEN!! TP2";
-					}, URL_AJAX)
-                }
-                contador = 0;
-            } else {
-                contador++;
-                // console.log('SE SALIÓ DEL EXÁMEN')
-                
-            }
-        }
-
-
-
-	//FETCH MODIFICADOS
-	//-----------------------------
-
-	/**
-	 * 
-	 * @param {String} meth Que puede ser 'POST' o 'GET'
-	 * @param {Object} jsonData Datos que se enviarán al servidor para que sena procesados
-	 * @param {Function} fnRquest Aquí se tratarán los datos devueltos del servidor
-	 */
-	function fetchKev(meth, jsonData, fnRquest, urlProcess){
-		let formData = new FormData();
-
-		formData.append("data", JSON.stringify(jsonData));
-
-		fetch(urlProcess,{
-			method: meth,
-			body: formData
-		}).then( data => data.json())
-		.then(data => {
-			fnRquest(data);
-		})
+				msj_plagio.innerHTML = "NO SALGA DE SU EXAMEN!! TP2";
+				mensaje_al_postulante();
+				contador = 0;
+			}, URL_AJAX)
+		}
+	} else {
+		contador++;
+		// console.log('SE SALIÓ DEL EXÁMEN')
 	}
+}
+
+
+
+//FETCH MODIFICADOS
+//-----------------------------
+/**
+* 
+* @param {String} meth Que puede ser 'POST' o 'GET'
+* @param {Object} jsonData Datos que se enviarán al servidor para que sena procesados
+* @param {Function} fnRquest Aquí se tratarán los datos devueltos del servidor
+*/
+function fetchKev(meth, jsonData, fnRquest, urlProcess){
+	let formData = new FormData();
+
+	formData.append("data", JSON.stringify(jsonData));
+
+	fetch(urlProcess,{
+		method: meth,
+		body: formData
+	}).then( data => data.json())
+	.then(data => {
+		fnRquest(data);
+	})
+}
 
 </script>
+

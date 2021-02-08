@@ -15,7 +15,7 @@
 
     class ExamenVirtual{
         
-        private $proceso = '0011'; //0012
+        private $proceso = '0017'; //0012
         private $bool_StdP = true; //Estado del proeso. Determina si se utiliza el valor del proceso de la clase
 
         /* Funcion para conectar a la BD - Function to connect to DB */
@@ -42,7 +42,7 @@
                 $proceso = empty($proceso)? $this->proceso : $proceso;
             }
 
-            $query1 = "INSERT INTO control_ventana (id, dni, nombre, fecha_hora, proceso, tipo, anio) VALUES (NULL, '$dni','$nombre',CURRENT_TIMESTAMP, '$proceso', '$tipo', '2020')";
+            $query1 = "INSERT INTO control_ventana (id, dni, nombre, fecha_hora, proceso, tipo, anio) VALUES (NULL, '$dni','$nombre',CURRENT_TIMESTAMP, '$proceso', '$tipo', '2021')";
 			$resInsrt1 = ExamenVirtual::ejecutar_una_consulta($query1);
             return 0;
         }

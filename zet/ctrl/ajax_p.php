@@ -14,6 +14,6 @@
     //insertando cambiode ventana
     $obj->insertar_cambio($dni, $nombre, $tipo, $proceso);
     
-    echo json_encode($data);
+    echo json_encode("response 333 ->" . $data->dni);
 
 ?>
