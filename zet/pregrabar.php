@@ -54,7 +54,7 @@
 	#define('GL_DIR_FS_APPS', 'd:/xampp/htdocs');
 	#################################################
 	#################################################
-	$proc="0017"; //PROCESO PRIMERA SELECCION
+	$proc="0017"; //PROCESO CEPRE
 	$status_voucher = "";
 	$destino_voucher = '../foto_voucher/'.$proc.$dni.'.jpg';
 	$archivo_voucher = $_FILES['imgInp'];
