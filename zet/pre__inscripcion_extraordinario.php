@@ -57,7 +57,7 @@
 <br>
 <br>
    
-<form action="pregrabar.php" method="post" id="grado" name="frmFotoGrado" enctype="multipart/form-data" onsubmit="return true;" >
+<form action="pregrabar_extraordinario.php" method="post" id="grado" name="frmFotoGrado" enctype="multipart/form-data" onsubmit="return true;" >
    <center><h3>INSCRIPCIÓN EXAMEN <u><strong>EXTRAORDINARIO</strong></u> ADMISIÓN UNAJMA</h3><h4 style="font-size:22px;">2021 - I</h4> </center> 
 <table width="760" border="0" align="center" cellpadding="3" cellspacing="0" class="table-borderless">
 
