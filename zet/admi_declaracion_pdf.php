@@ -26,7 +26,9 @@
 	#####################################
 	$mpdf = new \Mpdf\Mpdf();
 	#####################################
-	require('admi_solicitud_pdf.php');	// FICHA DE INSCRIPCION
+
+	// FICHA DE INSCRIPCION Y TAMBIEN TIENE LA ESTRUCTURA PARA LAS DJ DE LA PRIMERA HOJA
+	require('admi_solicitud_pdf.php');
 
 	//----------------- NO SE USA INICIO
 	#require('admi_declaracion01_pdf.php'); // DECLARACIÓN JURADA DE ACEPTACIÓN DE CONDICIONES EXAMEN ADMISION VIRTUAL
@@ -55,12 +57,16 @@
 					<img src="../images/logo_ingreso.jpg" width="90" />
 				</td>
 				<td align="center">
-					<span style="font-size:18px; font-weight:bold">UNIVERSIDAD NACIONAL 
+					<span style="font-size:18px; font-weight:bold">
+						UNIVERSIDAD NACIONAL 
+						<br>
+						JOSÉ MARÍA ARGUEDAS
+					</span>
 					<br>
-					JOS&Eacute; MAR&Iacute;A ARGUEDAS</span>
 					<br>
-					<br>
-					<span style="font-size:18px; font-weight:bold">OFICINA CENTRAL DE ADMISI&Oacute;N</span>
+					<span style="font-size:18px; font-weight:bold">
+						OFICINA CENTRAL DE ADMISIÓN
+					</span>
 					<br>
 				</td>
 				<td width="20%" align="center">'.
@@ -96,41 +102,59 @@
 		''
 		);
 		
-	// // pdf 2
-	// $mpdf->AddPage();
-	
-	// $mpdf->WriteHTML('
-	// 	<br>
-	// 	<br>
-	// 	<br>
-	// 	<br>
-	// 	<br>
-	// 	<br>'.
-	// 	$vd20.
-	// 	'<br>'.
-	// 	$vd21.
-	// 	$v3.
-	// 	''
-	// 	);
+	// // pdf 2 declaracion de apologia
+	include_once('admi_declaracion01_pdf.php');
+	$mpdf->AddPage();
+	$mpdf->WriteHTML('
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>'.
+		$vd20.
+		'<br>'.
+		$vd21.
+		$v3.
+		''
+	);
 
-	// // pdf 3
-	// $mpdf->AddPage();
+	// // pdf 3 declaracion
+	include_once('admi_declaracion02_pdf.php');
+	$mpdf->AddPage();
+	$mpdf->WriteHTML('
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>'.
+		$vd30.
+		'<br>'.
+		$vd31.
+		$v3.
+		''
+	);
 
-	// $mpdf->WriteHTML('
-	// 	<br>
-	// 	<br>
-	// 	<br>
-	// 	<br>
-	// 	<br>
-	// 	<br>'.
-	// 	$vd30.
-	// 	'<br>'.
-	// 	$vd31.
-	// 	$v3.
-	// 	''
-	// 	);	
+	// // pdf 4 declaracion
+	include_once('admi_declaracion03_pdf.php');
+	$mpdf->AddPage();
+	$mpdf->WriteHTML('
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>'.
+		$vd40.
+		'<br>'.
+		$vd41.
+		$v3.
+		''
+	);
 
-	//pdf 4
+	// // pdf 5 declaracion
+	include_once('admi_declaracion04_pdf.php');
 	$mpdf->AddPage();
 	$mpdf->WriteHTML('
 		<br>
@@ -144,7 +168,24 @@
 		$vd51.
 		$v3.
 		''
-		);
+	);
+
+	// // pdf 6 declaracion
+	include_once('admi_declaracion05_pdf.php');
+	$mpdf->AddPage();
+	$mpdf->WriteHTML('
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>'.
+		$vd60.
+		'<br>'.
+		$vd61.
+		''
+	);
+
 
 	//0015: Proceso CEPRE
 	//0014: Proceso Primera selección

@@ -68,11 +68,12 @@
 	$nombremes = nombremes($mes);
 	$fecha = 'Andahuaylas, '.$dia.' de '.$nombremes.' del '.$anio;
 		
+	//ENCABEZADO DE LAS DECLARACIONES Y/O CONSTANCIAS
 	$vc = '	
 		<table width="750">
 			<tr>
 				<td width="85%" align="right">
-					<span style="font-size:12px;">C&Oacute;DIGO DEL POSTULANTE: &nbsp;&nbsp;</span>
+					<span style="font-size:12px;">CÓDIGO DEL POSTULANTE: &nbsp;&nbsp;</span>
 				</td>
 				<td>
 					<table border="1" width="100%">
@@ -102,6 +103,7 @@
 			</tr>
 		</table>';		
 
+	// DATOS DEL POSTULANTE DE LA PRIMERA PAGINA DE LAS DJs
 	$v2 = '
 		<table width="750" border="0" cellpadding="3" cellspacing="3">
 			<tr height="'.$altura.'">
@@ -242,6 +244,7 @@
 			</tr>
 		</table>';
 		
+	//PIE DE PAGINA DE LAS DECLARACIONES JURADAS. MUESTRA LA FECHA Y LA FIRMA CON LOS DATOS DEL POSTULANTE
 	$v3 = '
 		<br>
 		<table width="750">
@@ -286,7 +289,7 @@
 
 	
 
-	//DATOS CONSTANCIA
+	//ESTRUCTURA Y DATOS DE LA CONSTANCIA DE INSCRIPCION DE DOBLE SECCION
 	$nombreConstancia = "Mg. HENRRY AGREDA CERNA";
 	$dniConstancia = '18142062';
 	$fotitoConstancia = mostrarfoto_ing_firma_pfd($dniConstancia);
@@ -350,12 +353,14 @@
 						<img src="../images/logo_ingreso.jpg" width="90" />
 					</td>
 					<td align="center">
-						<span style="font-size:18px; font-weight:bold">UNIVERSIDAD NACIONAL 
+						<span style="font-size:18px; font-weight:bold">
+							UNIVERSIDAD NACIONAL 
+							<br>
+							JOSÉ MARÍA ARGUEDAS</span>
 						<br>
-						JOS&Eacute; MAR&Iacute;A ARGUEDAS</span>
 						<br>
-						<br>
-						<span style="font-size:18px; font-weight:bold">OFICINA CENTRAL DE ADMISI&Oacute;N</span>
+						<span style="font-size:18px; font-weight:bold">
+							OFICINA CENTRAL DE ADMISIÓN</span>
 						<br>
 					</td>
 					<td width="20%" align="center">'.
@@ -368,7 +373,7 @@
 			<tr>
 				<td align="center">
 					<span style="font-size:17px; font-weight:bold">'.
-					$nombreproceso.
+						$nombreproceso.
 					'</span>
 				</td>
 			</tr>
@@ -437,7 +442,7 @@
 		
 	';
 
-	//HTML decopia
+	//HTML decopia --------------------------- PORSIACASO
 	$html_copy='
 	<table width="750" border="0">
 	<tr>

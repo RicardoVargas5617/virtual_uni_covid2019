@@ -36,64 +36,44 @@
 			</tr>
 		</table>';		
 
-	$vd41 = '
-		<div style="text-align: left; font-size:9px;">
-		<table width="750" border="0">
-			<tr>
-				<td width="2%">&nbsp;
-					
-				</td>
-				<td align="center" style="line-height:20pt;">
-					<strong>REQUISITOS M&Iacute;NIMOS</strong>
-				</td>
-				<td width="2%">&nbsp;
-					
-				</td>
-			</tr>
-		</table>
-		<table width="750">
-			<tr>
-				<td width="3%">
-				</td>
-				<td align="justify">
-					Yo, <strong>'.
-					$nombrealumno.
-					'</strong>, de nacionalidad peruana, identificado con documento de identidad Nro. <strong>'.
-					$dni.
-					'</strong>, con domicilio en  <strong>'.
-					$direccion.
-					'</strong>, del distrito <strong>'.
-					$nombredistrito.
-					'</strong>, provincia <strong>'.
-					$nombreprovincia.
-					'</strong>, de la regi&oacute;n <strong>'.
-					$nombredepartamento.
-					'</strong> postulante a la Carrera Profesional de <strong>'.
-					$nombreescuela.
-					'</strong>, seg&uacute;n modalidad <strong>'.
-					$nombremodalidad.
-					'</strong>, en el Proceso de admisi&oacute;n  <strong>'.
-					$nombreproceso.
-					'</strong>, de la Universidad Nacional Jos&eacute; Mar&iacute;a Arguedas de Andahuaylas; en pleno uso de mis facultades f&iacute;sico mentales.<br><br><br>
-					<strong>DECLARO BAJO JURAMENTO</strong> disponer como m&iacute;nimo:
-					<br>
-					<ol>
-					<li>
-					Un (01) ambiente privado, sin interrupci&oacute;n de equipos electr&oacute;nicos encendidos (radio, televisor, celulares, computadoras u otros), acondicionado con una (01) silla y una (01) mesa, escritorio u otro de1 metro por 60 cm. Aproximadamente.
-					</li>
-					<li>
-					Una (01) computadora o laptop con: - C&aacute;mara web operativo. - Conexi&oacute;n a internet por WiFi o cableado. - Capacidad de memoria de 4GB de RAM (recomendado). - Procesador Intel Celeron o superior. - Navegador web Mozilla. - Conectada a energ&iacute;a el&eacute;ctrica o con bater&iacute;a cargada al 100% que garantice una duraci&oacute;n por m&aacute;s de dos (02) horas.
-					</li>
-					<li>
-					Un (01) celular Smartphone con: - C&aacute;mara - Conexi&oacute;n a internet. - Sistema Android compatible con Google Meet. - Conectada a energ&iacute;a el&eacute;ctrica o con bater&iacute;a cargada al 100% que garantice una duraci&oacute;n por m&aacute;s de dos (02) horas.</li>
-					<li>
-					Servicio de internet por un periodo aproximado de dos (02) horas y un ancho de banda m&iacute;nimo estable de 4 Mbps.</li>
-					<li>
-					Correo electr&oacute;nico en Gmail.
-					</li>
-                </ol>
-				</td>
-			</tr>
-		</table>
-			';
+	$vd41 = "
+	<div style='text-align: left; font-size:9px;'>
+	<table width='750' border='0'>
+		<tr>
+			<td width='2%'>&nbsp;
+				
+			</td>
+			<td align='center' style='line-height:20pt;'>
+				<strong>
+					DECLARACIÓN JURADA DE REQUISITOS MÍNIMOS	
+				</strong>
+			</td>
+			<td width='2%'>&nbsp;
+				
+			</td>
+		</tr>
+	</table>
+	<table width='750'>
+		<tr>
+			<td width='3%'>
+			</td>
+			<td align='justify'>
+				Yo, <strong>$nombrealumno</strong>, identificado con documento de identidad Nro <strong>$dni</strong> con domicilio en $domicilio del distrito $nombredistrito, provincia $nombreprovincia de la regi&oacute;n $nombredepartamento; postulante por la modalidad <strong>$nombremodalidad</strong> a la Escuela Profesional de <strong>$nombreescuela</strong> –  Proceso de Admisión 2021-1.
+                <br>
+                <br>
+                Declaro bajo juramento disponer como mínimo:
+                <br>
+                Un (01) ambiente privado, sin interrupción de equipos electrónicos encendidos (radio, televisión, celulares, computadoras u otros), acondicionado con una (01) silla y una (01) mesa, escritorio u otro de 1 metro por 60 cm. Aproximadamente. 
+                <br>
+                Una (01) computadora o laptop con: -Cámara web operativo. - Conexión a internet por WiFi o cableado. - Capacidad de memoria de 4GB de RAM (recomendado). - Procesador Intel Celeron o superior. - Navegador web Mozilla, Chrome. - Conectada a energía o con batería cargada al 100% que garantice una duración por más de dos (02) horas.
+                <br>
+                Un (01) celular Smartphone con: - Cámara. – Conexión a internet. – Sistema Android compatible con Google Meet. – Conectada a energía eléctrica o con batería cargada al 100% que garantice una duración por más de dos (02) horas.
+                <br>
+                Servicio de internet por un periodo aproximado de dos (02) horas y un ancho de banda mínimo estable de 4 Mbps.
+                <br>
+                Correo electrónico en Gmail.
+			</td>
+		</tr>
+	</table>
+	";
 ?>

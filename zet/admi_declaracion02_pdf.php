@@ -36,60 +36,38 @@
 			</tr>
 		</table>';		
 
-	$vd31 = '
-		<div style="text-align: left; font-size:9px;">
-		<table width="750" border="0">
-			<tr>
-				<td width="2%">&nbsp;
-					
-				</td>
-				<td align="center" style="line-height:20pt;">
-					<strong>ACEPTACION DE 
-RIESGOS EN EL EXAMEN DE ADMISI&Oacute;N VIRTUAL </strong>
-				</td>
-				<td width="2%">&nbsp;
-					
-				</td>
-			</tr>
-		</table>
-		<table width="750">
-			<tr>
-				<td width="3%">
-				</td>
-				<td align="justify">
-					Yo, <strong>'.
-					$nombrealumno.
-					'</strong>, de nacionalidad peruana, identificado con documento de identidad Nro. <strong>'.
-					$dni.
-					'</strong>, con domicilio en  <strong>'.
-					$direccion.
-					'</strong>, del distrito <strong>'.
-					$nombredistrito.
-					'</strong>, provincia <strong>'.
-					$nombreprovincia.
-					'</strong>, de la regi&oacute;n <strong>'.
-					$nombredepartamento.
-					'</strong> postulante a la Carrera Profesional de <strong>'.
-					$nombreescuela.
-					'</strong>, seg&uacute;n modalidad <strong>'.
-					$nombremodalidad.
-					'</strong>, en el Proceso de admisi&oacute;n  <strong>'.
-					$nombreproceso.
-					'</strong>, de la Universidad Nacional Jos&eacute; Mar&iacute;a Arguedas de Andahuaylas; en pleno uso de mis facultades f&iacute;sico mentales.<br><br><br>
-					 <strong>DECLARO BAJO JURAMENTO</strong> conocer los riesgos de un examen no presencial on-line, los cuales me comprometo a prevenir y reducir BAJO MI RESPONSABILIDAD:
-					<br>
-					<ol>
-					<li>
-					Limitado o nulo acceso al servicio de internet por tiempo de dos (03) horas como m&iacute;nimo con la fluidez de datos y sin interferencia.
-					</li>
-	<li>Ausencia de energ&iacute;a el&eacute;ctrica para la computadora port&aacute;til (laptop).</li>
-	<li>Baja o limitada carga de bater&iacute;a del celular.</li>
-	<li>Ambiente no apropiado para rendir el examen virtual, que tenga interrupci&oacute;n por ruidos, terceras personas o interrupci&oacute;n por necesidades biol&oacute;gicas.</li>
-	<li>Interrupci&oacute;n de la conectividad de internet, audio o video, por tener encendido alg&uacute;n aparato electr&oacute;nico adicional a la laptop y celular con el que rendir&aacute; el examen.</li>
-	<li>Interrupci&oacute;n, fraude, robo de informaci&oacute;n o acceso no autorizado en el examen de admisi&oacute;n virtual, por hacking, phishing u otros aplicativos maliciosos; cuando ejecute una p&aacute;gina web, aplicativos on-line, conexi&oacute;n remota u otro software que no est&eacute; autorizado; con excepci&oacute;n del sistema de la Universidad. el aplicativo de verificaci&oacute;n y monitoreo proporcionado por la Oficina de Admisi&oacute;n.</li>
-					</ol>
-				</td>
-			</tr>
-		</table>
-			';
+	$vd31 = "
+	<div style='text-align: left; font-size:9px;'>
+	<table width='750' border='0'>
+		<tr>
+			<td width='2%'>&nbsp;
+				
+			</td>
+			<td align='center' style='line-height:20pt;'>
+				<strong>
+					DECLARACION JURADA	
+				</strong>
+			</td>
+			<td width='2%'>&nbsp;
+				
+			</td>
+		</tr>
+	</table>
+	<table width='750'>
+		<tr>
+			<td width='3%'>
+			</td>
+			<td align='justify'>
+				Yo, <strong>$nombrealumno</strong>, identificado con documento de identidad Nro <strong>$dni</strong> con domicilio en $domicilio del distrito $nombredistrito, provincia $nombreprovincia de la regi&oacute;n $nombredepartamento; postulante por la modalidad <strong>$nombremodalidad</strong> a la Escuela Profesional de <strong>$nombreescuela</strong> –  Proceso de Admisión 2021-1.
+                <br>
+                <br>
+                Declaro bajo juramento, que cumplo con los requisitos establecidos en el reglamento de admisión para el proceso remoto 2021-1, aprobado con resolucion __________, por lo que me comprometo a regularizar los documentos requeridos. 
+                <br>
+                Deseo mencionar también, que por motivo del Estado de Emergencia Nacional frente a la infección por Coronavirus (COVID-19), no fue posible obtener los documentos originales requeridos y proceder a la inscripción correcta del proceso de admisión, por la modalidad <strong>$nombremodalidad</strong>, por lo que recurro a esta declaración jurada en honor a la verdad.
+                <br>
+                Dejo constancia que lo declarado es un compromiso y puede ser objeto de comprobación en cualquier circunstancia, teniendo conocimiento de las sanciones administrativas y penales a las que me viera sujeto de constatarse alguna falsedad, por lo cual firmo y estampo mi impresión dactilar, en señal de conformidad de todos los datos de la presente declaración.
+			</td>
+		</tr>
+	</table>
+	";
 ?>
