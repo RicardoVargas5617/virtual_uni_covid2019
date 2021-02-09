@@ -210,8 +210,8 @@
             </strong>        
         </td>
         <td>
-        	<! data-type="texto" -->
-        	<input type="text" name="txtApoderado" id="txtApoderado" class="form-control validar" autocomplete="off" autocapitalize="words"  value="" maxlength="30"  placeholder="Ingresar apoderado" aria-describedby="txtnombre-message">
+        	<!-- data-type="texto" -->
+        	<input type="text" name="txtApoderado" id="txtApoderado" class="form-control validar" autocomplete="off" autocapitalize="words"  value="" maxlength="30"  placeholder="Puedes ser tú mismo, solo en el caso de que seas mayor de edad" aria-describedby="txtnombre-message">
         </td>    
     </tr>  
     <tr>
@@ -255,7 +255,7 @@
             </strong>        
         </td>
         <td>
-        	<input type="text" name="txtColegio" id="txtColegio" class="form-control validar" autocomplete="off" autocapitalize="words"  value="" maxlength="30"  placeholder="Ingresar colegio" aria-describedby="txtnombre-message">
+        	<input type="text" name="txtColegio" id="txtColegio" class="form-control validar" autocomplete="off" autocapitalize="words"  value="" maxlength="30"  placeholder="Ingresar nombre colegio" aria-describedby="txtnombre-message">
         </td>    
     </tr>  
     <tr>
@@ -265,7 +265,7 @@
             </strong>        
         </td>
         <td>
-        	<input type="text" name="txtAnioEgreso" id="txtAnioEgreso" data-type="number" class="form-control validar" autocomplete="off" autocapitalize="words"  value="" maxlength="4"  placeholder="Ingresar colegio" aria-describedby="txtnombre-message">
+        	<input type="text" name="txtAnioEgreso" id="txtAnioEgreso" data-type="number" class="form-control validar" autocomplete="off" autocapitalize="words"  value="" maxlength="4"  placeholder="2018" aria-describedby="txtnombre-message">
         </td>    
     </tr>     
 	<tr>
@@ -296,8 +296,10 @@
     <tr>
     	<td>
         	<strong>
-            Foto Voucher:
+            Foto Voucher: 
             </strong>        
+            <br>
+            <small>(Pago de inscripcion en el banco de la nación)</small>
         </td>
         <td>     
         	<input type='file' id="imgInp" name="imgInp" class="form-control validar" autocomplete="off" autocapitalize="words"  value=""  placeholder="Seleccione foto voucher" aria-describedby="imgInp-message" style=" border-radius: 0;
@@ -307,7 +309,7 @@
     background-color: #337ab7;
     border: 1px solid #ffffff;
 ">
-			<img id="blah" src="https://via.placeholder.com/150" alt="Tu imagen" width="150" height="150px" />
+			<img id="blah" src="https://i.ibb.co/Br8tf3Y/Whats-App-Image-2020-09-26-at-12-50-00-PM.jpg" alt="Tu imagen" width="150" height="150px" />
         </td>    
     </tr>
 
