@@ -584,7 +584,7 @@ REQUISITOS M&Iacute;NIMOS
 <table width="100%">
 	<tr>
     	<td align="center">
-        	<span style="font-size:22px">            
+        	<span style="font-size:22px"> 
             DECLARACION JURADA
 DE NO POSEER ANTECEDENTES PENALES POR LA COMISI&Oacute;N DE LOS DELITOS DE TERRORISMO O APOLOG&Iacute;A AL TERRORISMO, DE VIOLACI&Oacute;N A LA LIBERTAD SEXUAL O DE TR&Aacute;FICO IL&Iacute;CITO DE DROGAS   
             </span>
@@ -664,8 +664,8 @@ Doy fe que esta declaraci&oacute;n corresponde a la verdad, por lo que me someto
 
 //0015: Proceso CEPRE
 //0014: Proceso Primera selección--------------------------------
-if($proceso == '0016'){
-
+if($proceso == '0016' || $proceso != ""){
+    
 ?>
 
 <!-- INICIO - DJ PARA REGULARIZAR DOCUMENTOS REQUERIDOS --->
