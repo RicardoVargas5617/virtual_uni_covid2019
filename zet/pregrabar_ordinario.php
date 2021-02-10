@@ -55,7 +55,7 @@
 	#################################################
 	#################################################
 	
-	//Division de postulantes en grupos en funcion de las carreras.
+	//Division de postulantes en grupos en funcion de las carreras. MODALIDAD ORDINARIO
 	//PROCESO ORDINARIO GRUPO 1 // admi(01), ambiental(05) y agro(04)
 	//PROCESO ORDINARIO GRUPO 2 // sistemas(06), contabilidad(02) y educacion(03)
 	$grupo1 = array("01", "04", "05");

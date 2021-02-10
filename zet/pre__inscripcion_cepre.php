@@ -105,10 +105,10 @@
             </strong>        
         </td>
         <td>
-        	<?php MostrarComboZet("cboModalidad",$vsqlmodalidadadmision,$modalidad,$pasa); ?>
-            <!-- <select name="cboModalidad" id="cboModalidad">
-                <option value="02">1. EXTRAORDINARIO- PRIMERA SELECCION</option>
-            </select> -->
+        	<?php //MostrarComboZet("cboModalidad",$vsqlmodalidadadmision,$modalidad,$pasa); ?>
+            <select name="cboModalidad" id="cboModalidad">
+                <option value="03" selected="">CENTRO PRE</option>
+            </select>
         </td>    
     </tr>  
     <tr>
