@@ -4,14 +4,7 @@
 	$departamento = '03';
 	$provincia = '02';
 	$distrito = '01';
-	// $vsqlescuela = "select estructura, descripcion from mae_estructura order by descripcion";
-	// $vsqlmodalidadadmision = "select modalidadadmision, descripcion from adm_modalidadadmision where activo=1 order by descripcion";
-	// $vsqlsexo = "select sexo, descripcion from adm_sexo order by descripcion";
-	// $vsqltipocolegio = "select tipocolegio, descripcion from adm_tipocolegio order by descripcion";
-	// $vsqldepartamento="SELECT departamento,descripcion FROM mae_ubigeo WHERE provincia='00' AND distrito='00' order by 2";
-	// $vsqlprovincia="SELECT provincia,descripcion FROM mae_ubigeo WHERE departamento='$departamento' AND provincia<>'00' AND distrito='00' order by 2";
-    // $vsqldistrito="SELECT distrito,descripcion FROM mae_ubigeo WHERE departamento='$departamento' AND provincia='$provincia' AND distrito<>'00' order by 2";
-    
+
     $vsqlescuela = "select estructura, descripcion from mae_estructura where activo=1 order by descripcion";
 	$vsqlmodalidadadmision = "select modalidadadmision, descripcion from adm_modalidadadmision where activo=1 order by descripcion";
 	$vsqlsexo = "select sexo, descripcion from adm_sexo order by descripcion";
@@ -24,7 +17,7 @@
 	$pasa = 'Si';
 	$estructura = '01';
 	$tipocolegio = '01';
-	$modalidad = '11';
+	$modalidad = '01';
 	$sexo = 'M';
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -57,8 +50,8 @@
 <br>
 <br>
    
-<form action="pregrabar_extraordinario.php" method="post" id="grado" name="frmFotoGrado" enctype="multipart/form-data" onsubmit="return true;" >
-   <center><h3>INSCRIPCIÓN EXAMEN <u><strong>EXTRAORDINARIO</strong></u> ADMISIÓN UNAJMA</h3><h4 style="font-size:22px;">2021 - I</h4> </center> 
+<form action="pregrabar_cepre.php" method="post" id="grado" name="frmFotoGrado" enctype="multipart/form-data" onsubmit="return true;" >
+   <center><h3>INSCRIPCIÓN EXAMEN <u><strong>CEPRE</strong></u> ADMISIÓN UNAJMA</h3><h4 style="font-size:22px;">2021 - I</h4> </center> 
 <table width="760" border="0" align="center" cellpadding="3" cellspacing="0" class="table-borderless">
 
 	<tr>
@@ -112,17 +105,10 @@
             </strong>        
         </td>
         <td>
-        	<?php //MostrarComboZet("cboModalidad",$vsqlmodalidadadmision,$modalidad,$pasa); ?>
-            <select name="cboModalidad" id="cboModalidad">
-                <option value="04">EXTRAORDINARIO-BECAS VRAEM</option>
-                <option value="10">EXTRAORDINARIO-DEPORTISTAS CALIFICADOS Y DESTACADOS</option>
-                <option value="07">EXTRAORDINARIO-GRADUADOS Y TITULADOS</option>
-                <option value="11" selected="">EXTRAORDINARIO-MODALIDAD BECA 18</option>
-                <option value="06">EXTRAORDINARIO-PERSONAS CON DISCAPACIDAD</option>
-                <option value="05">EXTRAORDINARIO-PRIMEROS PUESTOS Y ALTO RENDIMIENTO</option>
-                <option value="09">EXTRAORDINARIO-TRASLADO INTERNO Y EXTERNO</option>
-                <option value="08">EXTRAORDINARIO-VICTIMAS DE VIOLENCIA POLITICA</option>
-            </select>
+        	<?php MostrarComboZet("cboModalidad",$vsqlmodalidadadmision,$modalidad,$pasa); ?>
+            <!-- <select name="cboModalidad" id="cboModalidad">
+                <option value="02">1. EXTRAORDINARIO- PRIMERA SELECCION</option>
+            </select> -->
         </td>    
     </tr>  
     <tr>
