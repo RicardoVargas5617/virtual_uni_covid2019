@@ -8,7 +8,7 @@
 	
 	if (!isset($_POST["txtDni"]))
 		{
-			header ("location: pre__inscripcion_extraordinario.php");
+			header ("location: pre__inscripcion_cepre.php");
 		}
 		
 	#$define('GL_DIR_FS_APPS', 'd:/xampp/htdocs');
@@ -65,9 +65,9 @@
 		$proc="0020"; //grupo 2
 	}
 
-	$status_voucher = "";
-	$destino_voucher = '../foto_voucher/'.$proc.$dni.'.jpg';
-	$archivo_voucher = $_FILES['imgInp'];
+	// $status_voucher = ""; 
+	// $destino_voucher = '../foto_voucher/'.$proc.$dni.'.jpg';
+	// $archivo_voucher = $_FILES['imgInp'];
 	#################################################
 	#################################################
 	$status_postulante = "";
@@ -92,7 +92,7 @@
 	if ($archivo_postulante['size'] <= $max_size && $archivo_postulante['size'] > 0)
 		{
 			#include_once('pre_fotovoucher.php');
-			include_once('pre_fotovoucher_1.php');
+			//include_once('pre_fotovoucher_1.php');
 			include('pre_fotopostulante.php');
 			include('pre_fotodni.php');
 			#echo 'hola 1';

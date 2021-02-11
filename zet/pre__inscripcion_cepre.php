@@ -286,6 +286,7 @@
             </td>
     </tr>      
     
+    <!-- 
     <tr>
     	<td>
         	<strong>
@@ -304,7 +305,8 @@
 ">
 			<img id="blah" src="https://i.ibb.co/Br8tf3Y/Whats-App-Image-2020-09-26-at-12-50-00-PM.jpg" alt="Tu imagen" width="150" height="150px" />
         </td>    
-    </tr>
+    </tr> 
+    -->
 
     <tr>
     	<td>
