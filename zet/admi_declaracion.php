@@ -664,13 +664,8 @@ Doy fe que esta declaraci&oacute;n corresponde a la verdad, por lo que me someto
 
 //0015: Proceso CEPRE
 //0014: Proceso Primera selección--------------------------------
-<<<<<<< HEAD
 if($proceso == '0016' || $proceso != ""){
     
-=======
-if($proceso == '0016'){
-
->>>>>>> 61c7642775aedc28ec4928178a06e1ff714329e0
 ?>
 
 <!-- INICIO - DJ PARA REGULARIZAR DOCUMENTOS REQUERIDOS --->
