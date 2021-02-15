@@ -664,7 +664,7 @@ Doy fe que esta declaraci&oacute;n corresponde a la verdad, por lo que me someto
 
 //0015: Proceso CEPRE
 //0014: Proceso Primera selección--------------------------------
-if($proceso == '0014'){
+if($proceso == '0016'){
 
 ?>
 
@@ -692,9 +692,9 @@ if($proceso == '0014'){
 
                 <br>
                 <br>
-                Declaro bajo juramento, que cumplo con los requisitos establecidos en la Directiva para el Examen de Admisión de estudiantes del 5° de Secundaria, Modalidad Extraordinario - Primera Selección (examen virtual o presencial), aprobado con Resolución N° 287-2020-CO-UNAJMA, por lo que me comprometo a regularizar los documentos requeridos. 
+                Declaro bajo juramento, que cumplo con los requisitos establecidos en el reglamento de admisión para el proceso remoto 2021-1, aprobado con resolucion __________, por lo que me comprometo a regularizar los documentos requeridos. 
                 <br>
-                Deseo mencionar también, que por motivo del Estado de Emergencia Nacional frente a la infección por Coronavirus - COVID-19, no fue posible obtener los documentos originales requeridos y proceder a la inscripción correcta, por lo que recurro a esta declaración jurada en honor a la verdad.
+                Deseo mencionar también, que por motivo del Estado de Emergencia Nacional frente a la infección por Coronavirus (COVID-19), no fue posible obtener los documentos originales requeridos y proceder a la inscripción correcta del proceso de admisión, por la modalidad <strong><?php echo $nombremodalidad?></strong>, por lo que recurro a esta declaración jurada en honor a la verdad.
                 <br>
                 Dejo constancia que lo declarado es un compromiso y puede ser objeto de comprobación en cualquier circunstancia, teniendo conocimiento de las sanciones administrativas y penales a las que me viera sujeto de constatarse alguna falsedad, por lo cual firmo y estampo mi impresión dactilar, en señal de conformidad de todos los datos de la presente declaración.
 
@@ -741,6 +741,183 @@ if($proceso == '0014'){
                     </td>
                 </tr>
                 <br>
+                
+            </table>
+		</td>
+    </tr>
+</table>
+<!-- FIN - DJ PARA REGULARIZAR DOCUMENTOS REQUERIDOS --->
+
+<!-- INICIO - DJ PARA REQUISITOS MINIMOS --->
+<table width="100%">
+	<tr>
+    	<td align="center">
+        	<span style="font-size:22px">            
+                DECLARACIÓN JURADA DE REQUISITOS MÍNIMOS
+            </span>
+            <br>
+        </td>
+    </tr>
+    <tr>
+    	<td align="left">
+        	Se&ntilde;or:<br>
+			Presidente de la Comisi&oacute;n Organizadora de la Universidad Nacional Jos&eacute; Mar&iacute;a Arguedas 
+
+        </td>
+    </tr>
+    <tr>
+    	<td style="font-size:14px;">
+        <br>
+                Yo, <strong><?php echo $nombrecompleto; ?></strong>, identificado con DNI Nro <strong><?php echo $dni;?></strong> con domicilio en <?php echo $domicilio;?> distrito <?php echo $nombredistrito;?> y provincia <?php echo $nombreprovincia;?> de la regi&oacute;n <?php echo $nombredepartamento?>; postulante por la modalidad <strong><?php echo $nombremodalidad?></strong> a la Escuela Profesional de <strong><?php echo $nombreescuela; ?></strong> –  Proceso de Admisión 2021-1.
+
+                <br>
+                <br>
+                Declaro bajo juramento disponer como mínimo:
+                <br>
+                Un (01) ambiente privado, sin interrupción de equipos electrónicos encendidos (radio, televisión, celulares, computadoras u otros), acondicionado con una (01) silla y una (01) mesa, escritorio u otro de 1 metro por 60 cm. Aproximadamente. 
+                <br>
+                Una (01) computadora o laptop con: -Cámara web operativo. - Conexión a internet por WiFi o cableado. - Capacidad de memoria de 4GB de RAM (recomendado). - Procesador Intel Celeron o superior. - Navegador web Mozilla, Chrome. - Conectada a energía o con batería cargada al 100% que garantice una duración por más de dos (02) horas.
+                <br>
+                Un (01) celular Smartphone con: - Cámara. – Conexión a internet. – Sistema Android compatible con Google Meet. – Conectada a energía eléctrica o con batería cargada al 100% que garantice una duración por más de dos (02) horas.
+                <br>
+                Servicio de internet por un periodo aproximado de dos (02) horas y un ancho de banda mínimo estable de 4 Mbps.
+                <br>
+                Correo electrónico en Gmail.
+
+        </td>
+    </tr>
+    <tr>
+     	<td style="font-size:14px;" align="center">
+        	<br>
+            <table width="100%">
+                <tr>
+                    <td align="right">
+                        <?php echo $fecha?>
+                    </td>
+                    <td width="10%">
+                        &nbsp
+                    </td>
+                </tr>
+            </table>
+            <br>
+        	<table width="100%" border="0">
+            	<tr>
+                	<td  width="10%">&nbsp;
+                    	
+                    </td>
+                    <td align="center" width="35%" style="vertical-align:bottom">                    
+ 						<?php
+                       		mostrarfoto_ing_firma($usuario);
+						?>
+                    </td>
+                    <td width="10%">&nbsp;
+                    	
+                    </td>
+                    
+                </tr>
+            	<tr>
+                	<td>&nbsp;
+                    	
+                    </td>
+                    <td style="border-top-style:dotted" align="center">                    
+                        <?php echo $nombrecompleto; ?> <br>
+                        Dni Nro: <?php echo $dni?>
+                    </td>
+                    <td>&nbsp;                    	
+                    </td>
+                </tr>
+                <br>
+<!-- esta es la parte de la firma del apoderado --->
+                
+<!-- aqui termina la firma del apoderado --->
+            </table>
+		</td>
+    </tr>
+</table>
+<!-- FIN - DJ PARA REQUISITOS MINIMOS --->
+
+<!-- INICIO - DJ PARA ACEPTACION DE RIESGOS --->
+<table width="100%">
+	<tr>
+    	<td align="center">
+        	<span style="font-size:22px">            
+                DECLARACIÓN JURADA DE ACEPTACION DE RIESGOS
+            </span>
+            <br>
+        </td>
+    </tr>
+    <tr>
+    	<td align="left">
+        	Se&ntilde;or:<br>
+			Presidente de la Comisi&oacute;n Organizadora de la Universidad Nacional Jos&eacute; Mar&iacute;a Arguedas 
+
+        </td>
+    </tr>
+    <tr>
+    	<td style="font-size:14px;">
+        <br>
+                Yo, <strong><?php echo $nombrecompleto; ?></strong>, identificado con DNI Nro <strong><?php echo $dni;?></strong> con domicilio en <?php echo $domicilio;?> distrito <?php echo $nombredistrito;?> y provincia <?php echo $nombreprovincia;?> de la regi&oacute;n <?php echo $nombredepartamento?>; postulante por la modalidad <strong><?php echo $nombremodalidad?></strong> a la Escuela Profesional de <strong><?php echo $nombreescuela; ?></strong> –  Proceso de Admisión 2021-1.
+
+                <br>
+                <br>
+                Declaro bajo juramento , conocer los riesgos de un examen no presencial on-line, los cuales me comprometo a prevenir y reducir BAJO MI RESPONSABILIDAD:
+                <br>
+                Limitado o nulo acceso al servicio de internet por tiempo de dos (02) horas como mínimo con la fluidez de datos y sin interferencia.
+                <br>
+                Ausencia de energía eléctrica para la computadora portátil (laptop). 
+                <br>
+                Baja o limitada carga de batería del celular.
+                <br>
+                Ambiente no apropiado para rendir el examen virtual, que tenga interrupción por ruidos, terceras personas o interrupción por necesidades biológicas.
+                <br>
+                Interrupción de la conectividad de internet, audio o video, por tener encendido algún aparato electrónico adicional a la laptop y celular con el que rendirá el examen de admisión.
+                <br>
+                Interrupción, fraude, robo de información o acceso no autorizado en el examen de admisión virtual, por hacking, phishing u otros aplicativos maliciosos; cuando ejecute una pagina web, aplicativos on-line, conexión remota u otro software que no esté autorizado; con excepción del sistema de la universidad, el aplicativo de auditoria a la computadora, verificación y monitoreo proporcionado por la Oficina de Admisión.
+
+        </td>
+    </tr>
+    <tr>
+     	<td style="font-size:14px;" align="center">
+        	<br>
+            <table width="100%">
+                <tr>
+                    <td align="right">
+                        <?php echo $fecha?>
+                    </td>
+                    <td width="10%">
+                        &nbsp
+                    </td>
+                </tr>
+            </table>
+            <br>
+        	<table width="100%" border="0">
+            	<tr>
+                	<td  width="10%">&nbsp;
+                    	
+                    </td>
+                    <td align="center" width="35%" style="vertical-align:bottom">                    
+ 						<?php
+                       		mostrarfoto_ing_firma($usuario);
+						?>
+                    </td>
+                    <td width="10%">&nbsp;
+                    	
+                    </td>
+                    
+                </tr>
+            	<tr>
+                	<td>&nbsp;
+                    	
+                    </td>
+                    <td style="border-top-style:dotted" align="center">                    
+                        <?php echo $nombrecompleto; ?> <br>
+                        Dni Nro: <?php echo $dni?>
+                    </td>
+                    <td>&nbsp;                    	
+                    </td>
+                </tr>
+                <br>
+<!-- esta es la parte de la firma del apoderado --->
                 <tr>
                 	<td  width="10%">&nbsp;
                     	
@@ -766,11 +943,89 @@ if($proceso == '0014'){
                     <td>&nbsp;                    	
                     </td>
                 </tr>
+<!-- aqui termina la firma del apoderado --->
             </table>
 		</td>
     </tr>
 </table>
-<!-- FIN - DJ PARA REGULARIZAR DOCUMENTOS REQUERIDOS --->
+<!-- FIN - DJ ACEPTACION DE RIESGOS --->
+
+<!-- INICIO - DJ PARA ACEPTACION DE CONDICIONES --->
+<table width="100%">
+	<tr>
+    	<td align="center">
+        	<span style="font-size:22px">            
+                DECLARACIÓN JURADA DE ACEPTACION DE CONDICIONES
+            </span>
+            <br>
+        </td>
+    </tr>
+    <tr>
+    	<td align="left">
+        	Se&ntilde;or:<br>
+			Presidente de la Comisi&oacute;n Organizadora de la Universidad Nacional Jos&eacute; Mar&iacute;a Arguedas 
+
+        </td>
+    </tr>
+    <tr>
+    	<td style="font-size:14px;">
+        <br>
+                Yo, <strong><?php echo $nombrecompleto; ?></strong>, identificado con DNI Nro <strong><?php echo $dni;?></strong> con domicilio en <?php echo $domicilio;?> distrito <?php echo $nombredistrito;?> y provincia <?php echo $nombreprovincia;?> de la regi&oacute;n <?php echo $nombredepartamento?>; postulante por la modalidad <strong><?php echo $nombremodalidad?></strong> a la Escuela Profesional de <strong><?php echo $nombreescuela; ?></strong> –  Proceso de Admisión 2021-1.
+
+                <br>
+                <br>
+                Declaro bajo juramento , que conozco y acepto el contenido del Reglamento del Proceso de Admisión 2021 – 1, Prospecto de Admisión y los lineamientos para el desarrollo del proceso de admisión, en el marco de emergencia sanitaria y medidas de prevención de contagio y propagación del COVID-19; así como las faltas, sanciones, riesgos y requisitos mínimos para participar en el examen virtual. Así mismo, durante el desarrollo del Examen de Admisión Virtual, me comprometo a cumplir con las instrucciones del supervisor o fiscalizador de la sesión virtual.
+        </td>
+    </tr>
+    <tr>
+     	<td style="font-size:14px;" align="center">
+        	<br>
+            <table width="100%">
+                <tr>
+                    <td align="right">
+                        <?php echo $fecha?>
+                    </td>
+                    <td width="10%">
+                        &nbsp
+                    </td>
+                </tr>
+            </table>
+            <br>
+        	<table width="100%" border="0">
+            	<tr>
+                	<td  width="10%">&nbsp;
+                    	
+                    </td>
+                    <td align="center" width="35%" style="vertical-align:bottom">                    
+ 						<?php
+                       		mostrarfoto_ing_firma($usuario);
+						?>
+                    </td>
+                    <td width="10%">&nbsp;
+                    	
+                    </td>
+                    
+                </tr>
+            	<tr>
+                	<td>&nbsp;
+                    	
+                    </td>
+                    <td style="border-top-style:dotted" align="center">                    
+                        <?php echo $nombrecompleto; ?> <br>
+                        Dni Nro: <?php echo $dni?>
+                    </td>
+                    <td>&nbsp;                    	
+                    </td>
+                </tr>
+                <br>
+<!-- esta es la parte de la firma del apoderado --->
+                
+<!-- aqui termina la firma del apoderado --->
+            </table>
+		</td>
+    </tr>
+</table>
+<!-- FIN - DJ ACEPTACION DE CONDICIONES --->
 
 <?php
 
