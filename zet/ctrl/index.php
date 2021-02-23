@@ -6,7 +6,7 @@
 
     $obj = new ExamenVirtual();
     
-    $res = $obj->traer_estudiantes($dni_supervisor, '0011');
+    $res = $obj->traer_estudiantes($dni_supervisor, '0019');
 
     //var_dump($res['data']);
     //var_dump($obj->Devuelve_procesoActual());
@@ -263,8 +263,9 @@
         let datos_POST = '<?php echo json_encode($res['data']); ?>';
         const datos_origen_post = JSON.parse(datos_POST);
 
-
-        //console.log(datos_origen_post);
+        //ver datos ingreso
+        console.log(datos_origen_post);
+        
         array_data_postulante();
         console.log(dni_postulantes);
         console.log(data_postulante);

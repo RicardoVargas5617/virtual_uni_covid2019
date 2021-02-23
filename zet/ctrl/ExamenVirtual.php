@@ -4,7 +4,7 @@
 	|  Datos del servidor - Data of the server  |
 	===========================================*/
 	const SERVER="localhost";
-	const DB="admision_2021"; // admision_zet - unajmadm_prueba
+	const DB="admision_zet"; // admision_zet - unajmadm_prueba
 	const USER="admision_zet"; // admision_zet - unajmadm_prueba
 	const PASS="carlsen2020"; // carlsen2020 - npHl;Y540,ni
 
@@ -15,7 +15,7 @@
 
     class ExamenVirtual{
         
-        private $proceso = '0017'; //0012
+        private $proceso = '0019'; //0012
         private $bool_StdP = true; //Estado del proeso. Determina si se utiliza el valor del proceso de la clase
 
         /* Funcion para conectar a la BD - Function to connect to DB */
