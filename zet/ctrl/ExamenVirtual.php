@@ -15,7 +15,7 @@
 
     class ExamenVirtual{
         
-        private $proceso = '0019'; //0012
+        private $proceso = '0021'; //0012
         private $bool_StdP = true; //Estado del proeso. Determina si se utiliza el valor del proceso de la clase
 
         /* Funcion para conectar a la BD - Function to connect to DB */

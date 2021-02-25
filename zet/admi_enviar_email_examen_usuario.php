@@ -17,7 +17,7 @@
 	error_reporting(E_ALL);
 	ini_set('display_errors', '1');
 		
-	$asunto = "UNAJMA - EXAMEN VIRTUAL 2020";	
+	$asunto = "UNAJMA - EXAMEN VIRTUAL 2021";	
 		
 	$vsql = "call zyz_CAMantenedorPostulante ('". $proceso . "', '". $postulante . "','1','2','3','4','5','1900-01-01','1','2','3','4','5',0,0,'1','2','3','4','5','6','7',0,0,0,0,0,'1','2','3','4','5',0,0,'','1','2','3','4','5','6','7','K')";
 	$rs = mysqli_query($cn_email, $vsql);	
@@ -100,7 +100,7 @@
 							Porfavor recortar las firmas a los tamaños de las firmas, pueden usar Paint o el mismo Whatsaap para realizar el recorte (<a href="https://www.youtube.com/watch?v=fcaeUdxpZVI&ab_channel=webscomgt">Click Auí video para realizar recorte con paint</a>.)
 							</li>
 							<li>
-							<strong>5).</strong> Debe mirar obligatoriamente el siguiente <strong>video instructivo</strong> de la universidad para no tener dificultades en su <strong>inscripción</strong> (<a href="https://www.youtube.com/watch?v=N7yxUvfPAL4&feature=youtu.be&ab_channel=Lenynflores">Click Aquí Video Inscripción Primera Selección</a>)
+							<strong>5).</strong> Debe mirar obligatoriamente el siguiente <strong>video instructivo</strong> de la universidad para no tener dificultades en su <strong>inscripción</strong> (<a href="https://www.youtube.com/watch?v=N7yxUvfPAL4&feature=youtu.be&ab_channel=Lenynflores">Click Aquí Video Inscripción evaluación virtual</a>)
 							</li>
 							<li>
 							<strong>6).</strong> <br>
@@ -111,13 +111,13 @@
 							USUARIO:<strong>'.$numerodocumento.'</strong><br>
 							CONTRASEÑA:<strong>'.$clave.'</strong>
 							<br> --> <a href="https://examen.admisionunajma.pe/zetadmision/zet/index.php">
-							CLICK AQUÍ SISTEMA VIRTUAL DE ADMISIÓN UNAJMA PRIMERA SELECCIÓN
+							CLICK AQUÍ SISTEMA VIRTUAL DE ADMISIÓN UNAJMA
 							</a> <-- 
 							<br>
 							<strong>******************************************************************************************</strong>
 							</li>
 							<li>
-							<strong>7).</strong> Debe descargar e instalar obligatoriamente este programa en el ordenador donde va a rendir su evaluación virtual <a href="https://drive.google.com/file/d/1HukIz7-bDDOd8qVSO1m_84_rciGTR9i4/view">DESCARGA CONTROL UNAJMA</a>
+							<strong>7).</strong> Debe descargar e instalar obligatoriamente este programa en el ordenador donde va a rendir su evaluación virtual <a href="https://drive.google.com/file/d/1HukIz7-bDDOd8qVSO1m_84_rciGTR9i4/view">DESCARGA PROGRAMA CONTROL UNAJMA</a>
 							</li>
 							<li>
 							<strong>8).</strong> Después de culminar todas las indicaciones hasta terminar de realizar su inscripción, debe contar a la mano con su <strong>CONSTANCIA DE INSCRIPCIÓN</strong> impreso a colores. Está constancia de inscripción es prueba de que usted terminó de realizar su inscripción satisfactoriamente. Por lo que deberá esperar pendiente a su correo electrónico, las indicaciones para el día del examen de la UNIVERSIDAD NACIONAL JOSÉ MARÍA ARGUEDAS. <br>
