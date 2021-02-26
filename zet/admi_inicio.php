@@ -37,6 +37,49 @@
     	<td>
         	<br>
             <?php echo $mensaje;?>
+            <?php
+				if($proceso === "0016"){
+			?>
+			Comunicado Postulante Extraordinario. Estimado postulante al proceso de admisión EXTRAORDINARIO 2021-1, mencionarle que el día viernes 26 de febrero de 2021 a horas 04:40 p.m. se desarrollara un simulacro y prueba del examen de admisión virtual, para lo cual debe estar a partir de la hora indicada y en el caso de no haber recibido el correo con las instrucciones comunicarse con los siguientes números: 
+			991828881, 
+			913841534, 
+			928145892, 
+			916331094, 
+			985951660
+			<?php
+				}
+			?>
+			
         </td>
     </tr>
 </table>
+<?php
+
+	if($proceso === "0016"){
+
+	
+?>
+<!-- CDN'S PARA ALERTASUNAJMA -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+<script>
+	setTimeout(() => {
+        Swal.fire(
+        'Comunicado Postulante Extraordinario.',
+        `Estimado postulante al proceso de admisión EXTRAORDINARIO 2021-1, mencionarle que el día viernes 26 de febrero de 2021 a horas 04:40 p.m. se desarrollara un simulacro y prueba del examen de admisión virtual, para lo cual debe estar a partir de la hora indicada y en el caso de no haber recibido el correo con las instrucciones comunicarse con los siguientes números: 
+        991828881, 
+        913841534, 
+        928145892, 
+        916331094, 
+        985951660
+        `,
+        'info'
+        )
+    }, 1500);
+</script>
+
+<?php
+
+	}
+	
+?>
