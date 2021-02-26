@@ -24,6 +24,18 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <!-- google fonts    -->
+
+    <!-- font awesome -->
+        <script src="https://kit.fontawesome.com/1c90e8b317.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+
     <title>SUPERVISIÓN - UNAJMA</title>
 
     <style>
@@ -64,6 +76,7 @@
     <div class="row">
         <div class="col-md-7">
             <div class="text-right">
+                Postulante seleccionado: <small id="nombre_post1" class="badge badge-danger">... </small>
                 <small class="badge badge-light">LISTA DE ESTUDIANTES</small>
             </div>
             <div class="overflow-auto contenido">
@@ -83,7 +96,7 @@
                                 # code...
                                 $num_es++;
                                 echo "
-                                    <tr>
+                                    <tr id=\"bg1".$element['numerodocumento']."\">
                                         <th scope='row'>{$num_es}</th>
                                         <td>".$element['numerodocumento']."</td>
                                         <td>".$element['nombrecompleto']."</td>
@@ -99,7 +112,7 @@
 
         <div class="col-md-5">
             <div class="text-right">
-                <small class="badge badge-light">PROGRAMAS INSTALADOS</small>
+                <small class="badge badge-light"> PROGRAMAS INSTALADOS</small> 
             </div>
             <div class="row">
                 <div class="col-4">
@@ -150,7 +163,7 @@
 <nav class="container bg-light py-3">
     <div class="row">
         <div class="col-md-2">
-            <input type="button" value="Recargar Lista" onclick="Obtener_postulantes_reg1();" class="btn btn-outline-dark"> 
+            <input type="button" value="Recargar Lista" onclick="Obtener_postulantes_reg1();" class="btn btn-outline-dark" id="btn_cargar"> 
         </div>
         <div class="col-md-10 text-center lead">
             <h3>SUPERVISION UNAJMA EXAMEN VIRTUAL</h3>
@@ -162,6 +175,7 @@
     <div class="row">
         <div class="col-md-8">
             <div class="text-right">
+                Postulante seleccionado: <small id="nombre_post2" class="badge badge-danger">... </small>
                 <small class="badge badge-light">LISTA DE ESTUDIANTES</small>
             </div>
             <div class="overflow-auto contenido">
@@ -192,7 +206,7 @@
                                                 <span class='sr-only'>veces cambios ventana</span>
                                             </button>
                                         </td>
-                                        <td><button type='button' class='btn btn-outline-info' onclick='alert(\"click\");'>Detalles</button></td>
+                                        <td><button type='button' class='btn btn-outline-info' onclick='alert(\"Dar en recargar.\");'>Detalles</button></td>
                                     </tr>
                                 ";
                             }
@@ -263,6 +277,8 @@
         let datos_POST = '<?php echo json_encode($res['data']); ?>';
         const datos_origen_post = JSON.parse(datos_POST);
 
+        let manejador = false;
+
         //ver datos ingreso
         console.log(datos_origen_post);
         
@@ -273,6 +289,12 @@
 
         //FUNCIONES ------------------------------
             function Obtener_postulantes_reg2(dni_pd){
+
+                let txt_nomPost = document.querySelector("#nombre_post2");
+                let dnix = `${dni_pd}-K`;
+                txt_nomPost.innerHTML = data_postulante[dnix].nombrecompleto;
+                sweetModalMin("Cargando . . .",'center',1200,'question');
+
                 // console.log(dni_pd);
                 let peticion = 'LPD';
                 fetchKev('post',{peticion, dni_pd},function(x){
@@ -299,6 +321,10 @@
 
 
             function Obtener_postulantes_reg1(){
+                //variable global
+                manejador = true;
+
+
                 let peticion = 'LP';
                 fetchKev('post',{peticion, dni_postulantes},function(x){
                     console.log(x) 
@@ -328,9 +354,10 @@
                         
                     });
                     if(num_es != 0){
+                        sweetModalMin("Postulantes cargados!",'center',2000,'success');
                         reg1_html.innerHTML = pl_html;
                     }else{
-                        alert("Ningun postulante salió del examen");
+                        sweetModalMin("Ningun postulante salió del examen",'center',2000,'info');
                     }
 
                 }, URL_AJAX)
@@ -355,27 +382,43 @@
             //mostrar programas del postulante
             function ImprimirProgramas_postulante(dni){
                 //alert("tu dni es " + $dni);
+                document.querySelector('#bg1'+dni).style.background = 'rgba(35,43,71,.2)';
                 let btn1 = document.querySelector("#programas_btn1");
                 let btn2 = document.querySelector("#programas_btn2");
                 let btn3 = document.querySelector("#programas_btn3");
                 let btn4 = document.querySelector("#programas_btn4");
+                let txt_nomPost = document.querySelector("#nombre_post1");
+                let msj_sweet = "";
                 let peticion = 'CP';
+
+                let dnix = `${dni}-K`;
+                txt_nomPost.innerHTML = data_postulante[dnix].nombrecompleto;
+                sweetModalMin("Cargando . . .",'center',800,'question');
+
                 fetchKev('POST',{peticion, dni}, function(rs){
                     let x = rs[0];
-                    console.log(x);
+                    //console.log(x);
                     //console.log(x.length);
                     //console.log(listProgramToArray(x.v_abiertas))
+
                     if(rs.length != 0){
-                        btn1.innerHTML = x.tp_enproceso; // Todas las ventanas abiertas
-                        btn2.innerHTML = x.v_abiertas; // ventanas de programas remotos invalidas abiertas
-                        btn3.innerHTML = x.pin_enproceso; // procesos ejecutandose en segundo plano de Programas invalidos
-                        btn4.innerHTML = x.tp_instalados; // Lista Todos los procesos 
+                        setTimeout(() => {
+                            msj_sweet = "Listo " + dni;
+                            sweetModalMin(msj_sweet,'center',1500,'success')
+                            btn1.innerHTML = x.tp_enproceso; // Todas las ventanas abiertas
+                            btn2.innerHTML = x.v_abiertas; // ventanas de programas remotos invalidas abiertas
+                            btn3.innerHTML = x.pin_enproceso; // procesos ejecutandose en segundo plano de Programas invalidos
+                            btn4.innerHTML = x.tp_instalados; // Lista Todos los procesos 
+                        }, 700);
                     }else{
-                        alert("No exiten registros del postulante identificado con dni " + dni);
-                        btn1.innerHTML = "...";
-                        btn2.innerHTML = "...";
-                        btn3.innerHTML = "...";
-                        btn4.innerHTML = "...";
+                        setTimeout(() => {
+                            msj_sweet = "Sin registros " + dni;
+                            sweetModalMin(msj_sweet,'center',1500,'info')
+                            btn1.innerHTML = "...";
+                            btn2.innerHTML = "...";
+                            btn3.innerHTML = "...";
+                            btn4.innerHTML = "...";
+                        }, 700);
                     }
                 }, URL_AJAX);
 
@@ -386,6 +429,41 @@
                 
                 return programListDB.split('<br>');
             }
+
+
+
+        // EL DOCENTE REALIZA EL CAMBIO PARA VISUALIZARCAMBIOS!!
+        //---------------------------------------------------------------------------
+        let manejador_setInterval = false;
+        // nivel 1
+        // function handleVisibilityChange() {
+        //     setTimeout(() => {
+        //         console.log("ver ", manejador_setInterval);
+        //         if(!manejador_setInterval){
+        //             console.log('Handle');
+        //             Obtener_postulantes_reg1();
+        //         } 
+        //     }, 1000);
+        // }
+        // document.addEventListener("visibilitychange", handleVisibilityChange, false);
+        // nivel 2
+        setInterval( checkPostulanteNav, 700);
+        function checkPostulanteNav() {
+            if(manejador){
+                if ( document.hasFocus() ) {
+                    if(manejador_setInterval){
+                        console.log('SetInterval');
+                        Obtener_postulantes_reg1();
+                        manejador_setInterval = false;
+                    }
+                } else {
+                    // console.log('SE SALIÓ DEL EXÁMEN')
+                    manejador_setInterval = true;
+                }
+            }
+            
+        }
+
 
         //FETCH MODIFICADOS
         //-----------------------------
@@ -408,6 +486,86 @@
                 fnRquest(data);
             })
         }
+
+
+        /**
+         * 
+         * 
+         * script share------------------------------------------------------------
+         * script share------------------------------------------------------------
+         * script share------------------------------------------------------------
+         */
+        function sweetModalCargando(){
+            Swal.fire({
+                icon: 'question',
+                title: `
+                    <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                    <span class="sr-only">Loading...</span> 
+                `,
+                text: 'Espere por favor!',
+                confirmButtonText: 'Cargando...',
+                showCloseButton: false,
+                showCancelButton: false,
+                showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+                }
+            })
+        }
+
+
+        /**
+         * 
+         * @param {*} mensaje 
+         * @param {*} position 
+         * @param {*} icon 
+         * @param {*} timer 
+         */
+        function sweetModal(mensaje,position,icon,timer){
+            Swal.fire({
+                position,
+                icon,
+                title: `<small class='text-modal'>${mensaje}</small>`,
+                showConfirmButton: false,
+                backdrop: `
+                    rgba(0,0,0,.4)
+                `,
+                timer
+            })
+        }
+
+
+
+        /**
+         * 
+         * @param {*} mensaje 
+         * @param {*} position 
+         * @param {*} timer 
+         * @param {*} icon 
+         */
+        function sweetModalMin(mensaje,position,timer,icon){
+            const Toast = Swal.mixin({
+                toast: true,
+                position,
+                showConfirmButton: false,
+                timer,
+                timerProgressBar: true,
+                onOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+
+            Toast.fire({
+                icon,
+                title: `<span class='my-3'>${mensaje}</span>`
+            })
+        }
+
+
+
 
     </script>
 
