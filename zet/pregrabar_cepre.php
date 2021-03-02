@@ -54,16 +54,7 @@
 	#define('GL_DIR_FS_APPS', 'd:/xampp/htdocs');
 	#################################################
 	#################################################
-
-	//Division de postulantes en grupos en funcion de las carreras. MODALIDAD CEPRE
-	//PROCESO ORDINARIO GRUPO 1 // admi(01), ambiental(05) y agro(04)
-	//PROCESO ORDINARIO GRUPO 2 // sistemas(06), contabilidad(02) y educacion(03)
-	$grupo1 = array("01", "04", "05");
-	if(in_array(trim($estructura), $grupo1)){
-		$proc="0019"; //grupo 1
-	}else{
-		$proc="0020"; //grupo 2
-	}
+	$proc="0020"; //grupo completo
 
 	// $status_voucher = ""; 
 	// $destino_voucher = '../foto_voucher/'.$proc.$dni.'.jpg';

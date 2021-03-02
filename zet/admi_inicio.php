@@ -40,12 +40,15 @@
             <?php
 				if($proceso === "0016"){
 			?>
-			Comunicado Postulante Extraordinario. Estimado postulante al proceso de admisión EXTRAORDINARIO 2021-1, mencionarle que el día viernes 26 de febrero de 2021 a horas 04:40 p.m. se desarrollara un simulacro y prueba del examen de admisión virtual, para lo cual debe estar a partir de la hora indicada y en el caso de no haber recibido el correo con las instrucciones comunicarse con los siguientes números: 
-			991828881, 
-			913841534, 
-			928145892, 
-			916331094, 
-			985951660
+			 Recuerda que todo está siendo monitoriado. Para evitar ser anualado, cierre todos los programas ajenos al examen. <br>
+			 No puede tener abierto ningún tipo de programas ofimáticos (No word, No excel, No pdf, . . .) <br>
+			 Debe cerra facebook, whatsapp, messenger, o cualquier otro tipo de programa de mensajeria . . . <br>
+			 No debes tener instalado programas remotos. Por ejemplo Any desk o Team Viewer, ni ningún otro programa del mismo tipo. <br>
+			 No salga de sus examen. Una vez que das inicio con el examen, no debes cambiar de pestana, ni minimizar el examen, menos salir de el. <br>
+			 Es obligatorio encender la camara del celular durante todo el examen. <br>
+			 En el caso de que el supervisor lo requiera, debe activar el microfono del celular, para desarrollar la comunicación .
+			 
+
 			<?php
 				}
 			?>
@@ -55,7 +58,7 @@
 </table>
 <?php
 
-	if($proceso === "0016"){
+	if($proceso === "0000"){
 
 	
 ?>

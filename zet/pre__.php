@@ -1,23 +1,35 @@
 <?php
+    if(false){
+
+?>
+
+<?php
 	include('../funciones/admi_con.php');
 	include('../funciones/admi_fun.php');
 	$departamento = '03';
 	$provincia = '02';
 	$distrito = '01';
-	$vsqlescuela = "select estructura, descripcion from mae_estructura where activo=1 order by descripcion";
+	// $vsqlescuela = "select estructura, descripcion from mae_estructura order by descripcion";
+	// $vsqlmodalidadadmision = "select modalidadadmision, descripcion from adm_modalidadadmision where activo=1 order by descripcion";
+	// $vsqlsexo = "select sexo, descripcion from adm_sexo order by descripcion";
+	// $vsqltipocolegio = "select tipocolegio, descripcion from adm_tipocolegio order by descripcion";
+	// $vsqldepartamento="SELECT departamento,descripcion FROM mae_ubigeo WHERE provincia='00' AND distrito='00' order by 2";
+	// $vsqlprovincia="SELECT provincia,descripcion FROM mae_ubigeo WHERE departamento='$departamento' AND provincia<>'00' AND distrito='00' order by 2";
+    // $vsqldistrito="SELECT distrito,descripcion FROM mae_ubigeo WHERE departamento='$departamento' AND provincia='$provincia' AND distrito<>'00' order by 2";
+    
+    $vsqlescuela = "select estructura, descripcion from mae_estructura where activo=1 order by descripcion";
 	$vsqlmodalidadadmision = "select modalidadadmision, descripcion from adm_modalidadadmision where activo=1 order by descripcion";
 	$vsqlsexo = "select sexo, descripcion from adm_sexo order by descripcion";
 	$vsqltipocolegio = "select tipocolegio, descripcion from adm_tipocolegio order by descripcion";
 	$vsqldepartamento="SELECT departamento,descripcion FROM mae_ubigeo WHERE provincia='00' AND distrito='00' order by 2";
 	$vsqlprovincia="SELECT provincia,descripcion FROM mae_ubigeo WHERE departamento='$departamento' AND provincia<>'00' AND distrito='00' order by 2";
 	$vsqldistrito="SELECT distrito,descripcion FROM mae_ubigeo WHERE departamento='$departamento' AND provincia='$provincia' AND distrito<>'00' order by 2";
-	
 
 
 	$pasa = 'Si';
 	$estructura = '01';
 	$tipocolegio = '01';
-	$modalidad = '01';
+	$modalidad = '11';
 	$sexo = 'M';
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -29,6 +41,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.0.js" integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous">
     </script>
+
+    <!-- CDN'S PARA ALERTASUNAJMA -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/1c90e8b317.js" crossorigin="anonymous"></script>
 </head>
 
 <body background="../images/fondo.jpg">
@@ -37,7 +54,7 @@
                     <tr>
                     <td align="center">
                     <img src="../images/logo.png" alt="Logo" width="100"/>
-                    <strong>UNIVERSIDAD NACIONAL JOS&Eacute; MAR&Iacute;A ARGUEDAS</strong>
+                    <strong>UNIVERSIDAD NACIONAL JOSÉ MARÍA ARGUEDAS</strong>
                     </td>
                     </tr>
                     </table>
@@ -45,8 +62,8 @@
 <br>
 <br>
    
-<form action="pregrabar.php" method="post" id="grado" name="frmFotoGrado" enctype="multipart/form-data" onsubmit="return true;" >
-   <center><h3>INSCR&IacuteBETE EXAMEN DE ADMISI&Oacute;N VIRTUAL</h3><h4 style="font-size:22px;">2020 - II</h4> </center> 
+<form action="pregrabar_extraordinario.php" method="post" id="grado" name="frmFotoGrado" enctype="multipart/form-data" onsubmit="return true;" >
+   <center><h3>INSCRIPCIÓN EXAMEN <u><strong>EXTRAORDINARIO</strong></u> ADMISIÓN UNAJMA</h3><h4 style="font-size:22px;">2021 - I</h4> </center> 
 <table width="760" border="0" align="center" cellpadding="3" cellspacing="0" class="table-borderless">
 
 	<tr>
@@ -100,7 +117,17 @@
             </strong>        
         </td>
         <td>
-        	<?php MostrarComboZet("cboModalidad",$vsqlmodalidadadmision,$modalidad,$pasa); ?>
+        	<?php //MostrarComboZet("cboModalidad",$vsqlmodalidadadmision,$modalidad,$pasa); ?>
+            <select name="cboModalidad" id="cboModalidad">
+                <option value="04">EXTRAORDINARIO-BECAS VRAEM</option>
+                <option value="10">EXTRAORDINARIO-DEPORTISTAS CALIFICADOS Y DESTACADOS</option>
+                <option value="07">EXTRAORDINARIO-GRADUADOS Y TITULADOS</option>
+                <option value="11" selected="">EXTRAORDINARIO-MODALIDAD BECA 18</option>
+                <option value="06">EXTRAORDINARIO-PERSONAS CON DISCAPACIDAD</option>
+                <option value="05">EXTRAORDINARIO-PRIMEROS PUESTOS Y ALTO RENDIMIENTO</option>
+                <option value="09">EXTRAORDINARIO-TRASLADO INTERNO Y EXTERNO</option>
+                <option value="08">EXTRAORDINARIO-VICTIMAS DE VIOLENCIA POLITICA</option>
+            </select>
         </td>    
     </tr>  
     <tr>
@@ -195,8 +222,8 @@
             </strong>        
         </td>
         <td>
-        	<! data-type="texto" -->
-        	<input type="text" name="txtApoderado" id="txtApoderado" class="form-control validar" autocomplete="off" autocapitalize="words"  value="" maxlength="30"  placeholder="Ingresar apoderado" aria-describedby="txtnombre-message">
+        	<!-- data-type="texto" -->
+        	<input type="text" name="txtApoderado" id="txtApoderado" class="form-control validar" autocomplete="off" autocapitalize="words"  value="" maxlength="30"  placeholder="Puedes ser tú mismo, solo en el caso de que seas mayor de edad" aria-describedby="txtnombre-message">
         </td>    
     </tr>  
     <tr>
@@ -240,7 +267,7 @@
             </strong>        
         </td>
         <td>
-        	<input type="text" name="txtColegio" id="txtColegio" class="form-control validar" autocomplete="off" autocapitalize="words"  value="" maxlength="30"  placeholder="Ingresar colegio" aria-describedby="txtnombre-message">
+        	<input type="text" name="txtColegio" id="txtColegio" class="form-control validar" autocomplete="off" autocapitalize="words"  value="" maxlength="30"  placeholder="Ingresar nombre colegio" aria-describedby="txtnombre-message">
         </td>    
     </tr>  
     <tr>
@@ -250,7 +277,7 @@
             </strong>        
         </td>
         <td>
-        	<input type="text" name="txtAnioEgreso" id="txtAnioEgreso" data-type="number" class="form-control validar" autocomplete="off" autocapitalize="words"  value="" maxlength="4"  placeholder="Ingresar colegio" aria-describedby="txtnombre-message">
+        	<input type="text" name="txtAnioEgreso" id="txtAnioEgreso" data-type="number" class="form-control validar" autocomplete="off" autocapitalize="words"  value="" maxlength="4"  placeholder="2018" aria-describedby="txtnombre-message">
         </td>    
     </tr>     
 	<tr>
@@ -276,11 +303,32 @@
 			<td>
 				<?php MostrarCombo2("cboDistritoProcedencia",$vsqldistrito,$distrito); ?>
             </td>
-	</tr>      
+    </tr>      
+    
     <tr>
     	<td>
         	<strong>
-            Foto postulante:
+            Foto Voucher: 
+            </strong>        
+            <br>
+            <small>(Pago de inscripcion en el banco de la nación)</small>
+        </td>
+        <td>     
+        	<input type='file' id="imgInp" name="imgInp" class="form-control validar" autocomplete="off" autocapitalize="words"  value=""  placeholder="Seleccione foto voucher" aria-describedby="imgInp-message" style=" border-radius: 0;
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
+    color: #ffffff;
+    background-color: #337ab7;
+    border: 1px solid #ffffff;
+">
+			<img id="blah" src="https://i.ibb.co/Br8tf3Y/Whats-App-Image-2020-09-26-at-12-50-00-PM.jpg" alt="Tu imagen" width="150" height="150px" />
+        </td>    
+    </tr>
+
+    <tr>
+    	<td>
+        	<strong>
+            Foto Rostro Postulante:
             </strong>        
         </td>
         <td>     
@@ -291,13 +339,13 @@
     background-color: #337ab7;
     border: 1px solid #ffffff;
 ">
-			<img id="blah1" src="https://via.placeholder.com/150" alt="Tu imagen" width="150px" height="150px" style=""/>
+			<img id="blah1" src="https://i.ibb.co/Tm3hb97/image.png" alt="Tu imagen" width="150px" height="150px" style=""/>
         </td>    
     </tr>
     <tr>
     	<td>
         	<strong>
-            Foto dni o ficha reniec:
+            Foto Dni o Ficha Reniec:
             </strong>        
         </td>
         <td>     
@@ -308,13 +356,25 @@
     background-color: #337ab7;
     border: 1px solid #ffffff;
 ">
-			<img id="blah2" src="https://via.placeholder.com/150" alt="Tu imagen" width="150px" height="150px" style=""/>
+			<img id="blah2" src="https://i.ibb.co/ZKVB8xZ/image.png" alt="Tu imagen" width="150px" height="150px" style=""/>
         </td>    
     </tr>
+
+    <tr>
+        <td align="left" colspan="2">
+            <br>
+            <strong>Recuerda</strong> completar tu inscrición ingresando al <a href="https://examen.admisionunajma.pe/zetadmision/zet/index.php" target="_blank" rel="noopener noreferrer">SIGUIENTE SISTEMA VIRTUAL</a>, por lo que: 
+            <ul>
+                <li>Deberás de ingresar al sistema virtual con tu usuario y contraseña, el cual te llegará al correo electrónico que estás registrando en este momento en el formulario de inscripción virtual</li>
+                <li>Ya dentro del sistema, tendrás que subir la Foto de tu firma digital en formato .jpg, tus documentos Requeridos en formato .PDF, aceptar las Declaraciones Juradas, y Finalmente tendrás que Descargar tu constacia de inscripción y Declaraciones Juradas en formato PDF.</li>
+                <li>NO OLVIDES PRESIONAR EL BOTON  DE <strong>AQUÍ ABAJO</strong> PARA COMPLETAR TU REGISTRO DE PREINSCRIPCIÓN</li>
+            </ul>            
+        </td>
+    </tr>   
+
 	<tr>
-    	<td colspan="2" align="center">
-        	<br>
-            <button type="button" class="submit" style="background-color: #337ab7; 
+    	<td colspan="2" align="center">        	
+            <button type="button" class="submit btn-u-registro" style="background-color: #337ab7; 
   border: none;
   color: white;
   padding: 15px 32px;
@@ -327,7 +387,7 @@
 			</button>
             <br>
         </td>    
-    </tr>     
+    </tr>  
 </table>
 </form>
 <br>
@@ -340,6 +400,33 @@
 </body>
 </html>
 <script>
+
+    function mensaje_post_submit(txt_titulo, txt_text, txt_icon, txt_btn, txt_footer){
+        Swal.fire({
+                title: txt_titulo,
+                text: txt_text,
+                icon: txt_icon,
+                confirmButtonText: txt_btn,
+                footer: `<a href="#">${txt_footer}</a>`
+        })
+    }
+
+    setTimeout(() => {
+        Swal.fire(
+        'Comunicado Postulante Extraordinario.',
+        `Estimado postulante al proceso de admisión EXTRAORDINARIO 2021-1, mencionarle que el día viernes 26 de febrero de 2021 a horas 04:40 p.m. se desarrollara un simulacro y prueba del examen de admisión virtual, para lo cual debe estar a partir de la hora indicada y en el caso de no haber recibido el correo con las instrucciones comunicarse con los siguientes números: 
+        991828881, 
+        913841534, 
+        928145892, 
+        916331094, 
+        985951660
+        `,
+        'info'
+        )
+    }, 1500);
+
+
+//cod Z -------------------------
     function crearselectubigeo(id,data) {
         $("#" + id).html('');
         $("#" + id).html('<option value=\"\">SELECCIONAR..</option>');
@@ -429,68 +516,67 @@ $('button.submit').off('click').on('click',function () {
                         }else{
                             $(this).removeClass('is-invalid');
                         
-                       //  alert($(this).data('type'))
-                        switch ($(this).data('type')) {
-                            case 'texto':
-                                if(!(/^[\u00F1ÑA-Zña-z _]*[\u00F1ÑA-Zña-z][\u00F1ÑA-Zña-z _]*$/.test(valor))){
-                                    estado=false;
-                                    $(this).addClass('is-invalid');
-                                    $(this).after("<b id='" + attr + "' class='error invalid-feedback'>Formato de texto incorrecto</b>");
-                                }
+                            //  alert($(this).data('type'))
+                            switch ($(this).data('type')) {
+                                case 'texto':
+                                    if(!(/^[\u00F1ÑA-Zña-z _]*[\u00F1ÑA-Zña-z][\u00F1ÑA-Zña-z _]*$/.test(valor))){
+                                        estado=false;
+                                        $(this).addClass('is-invalid');
+                                        $(this).after("<b id='" + attr + "' class='error invalid-feedback'>Formato de texto incorrecto</b>");
+                                    }
+                                    break;
+                                case 'email':
+                                    // console.log($(this))
+                                    // alert((/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(valor)))
+                                    if(!(/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(valor))){
+                                        //  alert('SI')
+                                        estado=false;
+                                        $(this).addClass('is-invalid');
+                                        $(this).after("<b id='" + attr + "' class='error invalid-feedback'>Formato de correo incorrecto</b>");
+                                    }
+                                    break;
+                                case 'url':
+                                    if(!(/^(?:(?:(?:https?|ftp):)?\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})).?)(?::\d{2,5})?(?:[\/?#]\S*)?$/i.test(valor))){
+                                        estado=false;
+                                        $(this).addClass('is-invalid');
+                                        $(this).after("<b id='" + attr + "' class='error invalid-feedback'>Formato de URL incorrecto</b>");
+                                    }
+                                    break;
+                                case 'date':
+                                    /*!/Invalid|NaN/.test(new Date(valor).toString()) || */
+                                    console.log(valor);
+                                    /*!(/^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/i.test(valor)) || */
+                                    if(!(/^\d{4}(-)(((0)[0-9])|((1)[0-2]))(-)([0-2][0-9]|(3)[0-1])$/i.test(valor))){
+                                        estado=false;
+                                        $(this).addClass('is-invalid');
+                                        $(this).after("<b id='" + attr + "' class='error invalid-feedback'>Formato de Fecha incorrecto</b>");
+                                    }
+                                    break
+                                case 'dateISO':
+                                    if(!(/^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/.test(valor))){
+                                        estado=false;
+                                        $(this).addClass('is-invalid');
+                                        $(this).after("<b id='" + attr + "' class='error invalid-feedback'>Formato de fecha incorrecto</b>");
+                                    }
+                                    break;
+                                case 'number':
+                                // alert((/^(?:-?\d+|-?\d{1,3}(?:,\d{3})+)?(?:\.\d+)?$/.test(valor)))
+                                    if(!(/^(?:-?\d+|-?\d{1,3}(?:,\d{3})+)?(?:\.\d+)?$/.test(valor)) || valor==''){
+                                        estado=false;
+                                        $(this).addClass('is-invalid');
+                                        $(this).after("<b id='" + attr + "' class='error invalid-feedback'>Formato de numerico incorrecto</b>");
+                                    }
+                                    break;
+                                case 'digits':
+                                    if(!( /^\d+$/.test(valor))){
+                                        estado=false;
+                                        $(this).addClass('is-invalid');
+                                        $(this).after("<b id='" + attr + "' class='error invalid-feedback'>Formato de numero incorrecto</b>");
+                                    }
+                                    break;
+                            }
 
-                                break;
-                            case 'email':
-
-                                // console.log($(this))
-                               // alert((/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(valor)))
-                                if(!(/^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(valor))){
-                                    //  alert('SI')
-                                    estado=false;
-                                    $(this).addClass('is-invalid');
-                                    $(this).after("<b id='" + attr + "' class='error invalid-feedback'>Formato de correo incorrecto</b>");
-                                }
-                                break;
-                            case 'url':
-                                if(!(/^(?:(?:(?:https?|ftp):)?\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})).?)(?::\d{2,5})?(?:[\/?#]\S*)?$/i.test(valor))){
-                                    estado=false;
-                                    $(this).addClass('is-invalid');
-                                    $(this).after("<b id='" + attr + "' class='error invalid-feedback'>Formato de URL incorrecto</b>");
-                                }
-                                break;
-                            case 'date':
-                            /*!/Invalid|NaN/.test(new Date(valor).toString()) || */
-                            console.log(valor);
-                            /*!(/^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/i.test(valor)) || */
-                                if(!(/^\d{4}(-)(((0)[0-9])|((1)[0-2]))(-)([0-2][0-9]|(3)[0-1])$/i.test(valor))){
-                                    estado=false;
-                                    $(this).addClass('is-invalid');
-                                    $(this).after("<b id='" + attr + "' class='error invalid-feedback'>Formato de Fecha incorrecto</b>");
-                                }
-                                break
-                            case 'dateISO':
-                                if(!(/^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/.test(valor))){
-                                    estado=false;
-                                    $(this).addClass('is-invalid');
-                                    $(this).after("<b id='" + attr + "' class='error invalid-feedback'>Formato de fecha incorrecto</b>");
-                                }
-                                break;
-                            case 'number':
-                               // alert((/^(?:-?\d+|-?\d{1,3}(?:,\d{3})+)?(?:\.\d+)?$/.test(valor)))
-                                if(!(/^(?:-?\d+|-?\d{1,3}(?:,\d{3})+)?(?:\.\d+)?$/.test(valor)) || valor==''){
-                                    estado=false;
-                                    $(this).addClass('is-invalid');
-                                    $(this).after("<b id='" + attr + "' class='error invalid-feedback'>Formato de numerico incorrecto</b>");
-                                }
-                                break;
-                            case 'digits':
-                                if(!( /^\d+$/.test(valor))){
-                                    estado=false;
-                                    $(this).addClass('is-invalid');
-                                    $(this).after("<b id='" + attr + "' class='error invalid-feedback'>Formato de numero incorrecto</b>");
-                                }
-                                break;
                         }
-                    }
                         if($(this).data('minlength')!==undefined) {
                             var r = t.isArray(e) ? e.length : this.getLength(e, n);
                             return this.optional(n) || r >= i
@@ -529,10 +615,30 @@ $('button.submit').off('click').on('click',function () {
                         }
                     }
                 });
+
 				if(estado){
+
 					$('form').submit();
-				}
-            })
+
+                    mensaje_post_submit('Espere un momento por favor!', 
+                            'Estamos comprobando sus datos registrados en el formulario',
+                            'info',
+                            `
+                            <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                            <span class="sr-only">Loading...</span> 
+                            <br><br>
+                            Si esto tarda, probablemente tenga que corregir algún dato en el formulario
+                            `,
+                            'Se está registrando su inscripción...');
+                    
+				}else{
+                    mensaje_post_submit('Ops!', 
+                            'Por favor corrija los datos ingresados en el formulario.',
+                            'warning',
+                            `Corregir datos`,
+                            'No se está registrando su inscripción...');
+                }
+})
 
 
 function readImage (input) {
@@ -581,3 +687,100 @@ function readImage (input) {
   });
 
 </script>
+
+
+
+
+
+<?php
+        
+    }else {
+        # code...
+
+?>
+
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="icon" href="public/img/logo_u.ico">
+    <title>ADMISIÓN UNAJMA</title>
+
+    <style>
+
+        .seccion-contenedor{
+            height: 100vh;
+
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap:wrap;
+
+        }
+
+        .seccion-contenedor div{
+          display: block;
+          width: 100%;          
+          text-align: center;
+        }
+    </style>
+
+  </head>
+  <body>
+    
+
+    <div class="seccion-contenedor">        
+        <div class="card text-center" style="width: 18rem;">
+            <div class="card-body">
+                <!-- <h5 class="card-title text-danger">EN ESTOS MOMENTOS NO PODEMOS ATENDERLE</h5> -->
+                <h5 class="card-title text-danger">INSCRIPCIONES UNAJMA </br> 2021 </h5>
+                <p class="card-text">Las inscripciones para el examen de EXTRAORDINARIO - 2021-1 </br> <b>FINALIZARÓN</b> A LAS 12:38 PM</p>
+                <a href="https://examen.admisionunajma.pe/index.php" class="btn btn-warning">Ir a la página principal</a>
+            </div>
+        </div>
+        <div>
+          <img src="logo_u.png" alt="">
+        </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php
+        
+    }
+
+?>

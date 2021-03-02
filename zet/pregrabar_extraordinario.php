@@ -8,7 +8,8 @@
 	
 	if (!isset($_POST["txtDni"]))
 		{
-			header ("location: pre__inscripcion_extraordinario.php");
+			// header ("location: pre__inscripcion_extraordinario.php");
+			header ("location: pre__.php");
 		}
 		
 	#$define('GL_DIR_FS_APPS', 'd:/xampp/htdocs');

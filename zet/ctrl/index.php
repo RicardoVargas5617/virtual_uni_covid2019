@@ -32,16 +32,19 @@
     <!-- font awesome -->
         <script src="https://kit.fontawesome.com/1c90e8b317.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
+        <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500&display=swap" rel="stylesheet">
 
     <title>SUPERVISIÓN - UNAJMA</title>
 
     <style>
-
+        body{
+            font-family: 'Gothic A1', sans-serif;
+        }
         .contenido{
-            height:80vh;
+            height:77vh;
         }
     
     </style>
@@ -206,7 +209,7 @@
                                                 <span class='sr-only'>veces cambios ventana</span>
                                             </button>
                                         </td>
-                                        <td><button type='button' class='btn btn-outline-info' onclick='alert(\"Dar en recargar.\");'>Detalles</button></td>
+                                        <td><button type='button' class='btn btn-outline-info' onclick='alert(\"Click en recargar Lista.\");'>Detalles</button></td>
                                     </tr>
                                 ";
                             }
