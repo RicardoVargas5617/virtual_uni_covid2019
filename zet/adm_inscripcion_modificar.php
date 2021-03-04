@@ -176,6 +176,24 @@ $vsqldepartamento="SELECT departamento,descripcion FROM mae_ubigeo WHERE provinc
     </tr>
     <tr>
         <td>
+            <strong>CONTACTO:</strong>								
+        </td>
+        <td>            
+            <h2>
+                <?php echo  substr($telefono,0,3) , " - " , substr($telefono,3,3) , " - ", substr($telefono,6,9) ;  ?>
+            </h2>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong>Celular/Fijo:</strong>								
+        </td>
+        <td>            
+            <input name="txtTelefono" id="txtTelefono" type="text" value="<?php echo $telefono?>" style="width: 60%">
+        </td>
+    </tr>
+    <tr>
+        <td>
             <strong>Fec. Nacimiento:</strong>								
         </td>
         <td>
@@ -238,14 +256,7 @@ $vsqldepartamento="SELECT departamento,descripcion FROM mae_ubigeo WHERE provinc
             <input name="txtDireccion" id="txtDireccion" type="text" value="<?php echo $direccion?>" style="width: 60%">
         </td>
     </tr>
-    <tr>
-        <td>
-            <strong>Celular/Fijo:</strong>								
-        </td>
-        <td>            
-            <input name="txtTelefono" id="txtTelefono" type="text" value="<?php echo $telefono?>" style="width: 60%">
-        </td>
-    </tr>
+    
     <!--
     <tr>
         <td>
