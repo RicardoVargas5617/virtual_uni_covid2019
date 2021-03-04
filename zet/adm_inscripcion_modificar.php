@@ -180,7 +180,7 @@ $vsqldepartamento="SELECT departamento,descripcion FROM mae_ubigeo WHERE provinc
         </td>
         <td>            
             <h2>
-                <?php echo  substr($telefono,0,3) , " - " , substr($telefono,3,3) , " - ", substr($telefono,6,9) ;  ?>
+                <?php echo  substr($telefono,0,3) . " - " . substr($telefono,3,3) . " - ". substr($telefono,6,9) ;  ?>
             </h2>
         </td>
     </tr>
