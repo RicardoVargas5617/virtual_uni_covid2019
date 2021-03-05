@@ -6,9 +6,11 @@
 	$cn_email = conectar();
 	$cn_email_zet = conectar();
 	$codigo = base64_decode(base64_decode($_GET['clave']));
+
 	$tipo = substr($codigo,0,1);
 	$proceso = substr($codigo,1,4);
 	$postulante = substr($codigo,5,7);
+
 	#echo '<br>';
 	#echo $codigo;
 	#exit;
