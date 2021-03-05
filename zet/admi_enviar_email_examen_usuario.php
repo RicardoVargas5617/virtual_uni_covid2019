@@ -108,7 +108,7 @@
 							<strong>6).</strong> <br>
 							<strong>******************************IMPORTANTE**************************************************</strong>
 							<br>
-							INGRESE AL <strong>SISTEMA VIRTUAL DE ADMISIÓN</strong> PARA TERMINAR SU INSCRIPCIÓN, Y ASÍ PODER SUBIR LAS FIRMAS (POSTULANTE Y APODERADO EN CASO SEA MENOR DE EDAD),Y SU DOCUMENTO PDF (declaración jurada COVID y constancia de quinto de secundaria).
+							INGRESE AL <strong>SISTEMA VIRTUAL DE ADMISIÓN</strong> PARA TERMINAR SU INSCRIPCIÓN, Y ASÍ PODER SUBIR LAS FIRMAS (POSTULANTE Y APODERADO EN CASO SEA MENOR DE EDAD),Y SU DOCUMENTO PDF (declaración jurada COVID y certificado de estudios).
 							<br>
 							USUARIO:<strong>'.$numerodocumento.'</strong><br>
 							CONTRASEÑA:<strong>'.$clave.'</strong>
