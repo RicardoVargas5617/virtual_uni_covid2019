@@ -117,7 +117,10 @@
             </strong>        
         </td>
         <td>
-        	<?php MostrarComboZet("cboModalidad",$vsqlmodalidadadmision,$modalidad,$pasa); ?>
+        	<?php //MostrarComboZet("cboModalidad",$vsqlmodalidadadmision,$modalidad,$pasa); ?>
+            <select name="cboModalidad" id="cboModalidad">
+                <option value="09">EXTRAORDINARIO-TRASLADO INTERNO Y EXTERNO</option>
+            </select>
         </td>    
     </tr>  
     <tr>
