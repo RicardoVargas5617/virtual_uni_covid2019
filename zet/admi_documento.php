@@ -44,6 +44,11 @@
                         <h3 class="panel-title"> <i class="fa fa-leaf"></i>
                             Subir PDF
                         </h3>
+
+                        <b>
+                            <a href="https://www.ilovepdf.com/es/comprimir_pdf" target="_blank" class="text-warning stretched-link" style="color:#fb8500; font-size: 16px;">Comprima su documento PDF aquí, en el caso de que sea necesario (CLICK AQUÍ)</a>
+                        </b>
+
                     </div>
                 </header>
                 <div class="form-group col-lg-12"></div>
