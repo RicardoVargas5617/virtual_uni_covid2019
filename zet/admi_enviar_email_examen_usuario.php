@@ -6,9 +6,11 @@
 	$cn_email = conectar();
 	$cn_email_zet = conectar();
 	$codigo = base64_decode(base64_decode($_GET['clave']));
+
 	$tipo = substr($codigo,0,1);
 	$proceso = substr($codigo,1,4);
 	$postulante = substr($codigo,5,7);
+
 	#echo '<br>';
 	#echo $codigo;
 	#exit;
@@ -45,8 +47,108 @@
 	#echo '<br>';
 	#echo $celular;
 	#echo '<br>';
-			
-	$cuerpo = '
+	if($proceso === "0022"){
+
+		$cuerpo = '
+		<html>
+		<head>
+			  <title>EXAMEN DE ADMISION</title>
+		</head>
+		<body>
+			  <table>
+				  <tr>
+					<td align="center">
+						<strong>
+						UNIVERSIDAD NACIONAL JOSÉ MARÍA ARGUEDAS
+						</strong>
+						<br>
+					</td>
+				</tr>
+			  	<tr>
+					<td>
+						Estimado(a) postulante: <strong>' .$nombre .'</strong>, 
+						<br>DNI:<strong> ' .$numerodocumento . '</strong>, <br>
+						correo electr&oacute;nico:<strong> '.$email.'</strong>:
+						</strong> <br>
+						<strong>SE RECOMIENDA USAR SU COMPUTADORA PARA LAS SIGUIENTES INDICACIONES.</strong>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<ul>
+							<li> 
+							<strong>1).</strong> 
+							Asegúrese de contar con su <strong>Certificado de estudios o ficha de logros de aprendizaje </strong> Así mismo sus documentos solicitados según su modalidad de postulación.
+							</li>
+							<li>
+							<strong>2).</strong>
+							Escanee los documentos como un solo archivo en formato PDF.
+							Debe obtener un solo archivo PDF(*el documento pdf*).
+							<br>
+							<a href="https://www.youtube.com/watch?v=myzSi6vEHr0&ab_channel=TooSmart">Click Aquí video para escanear con el CELULAR</a> 
+							<br>
+							<a href="https://www.youtube.com/watch?v=tXJBEDfrcHI&ab_channel=FranquiciasTiendasAPP">¿Qué es escanear?</a>
+							</li>
+							<li>
+							<strong>3).</strong> 
+							Debe tener las siguientes fotografías:
+							Una fotografía de su firma (firma del postulante) en una hoja de fondo blanco;
+							Una fotografía de la firma del apoderado en el caso de ser menor de edad en una hoja de fondo blanco.
+							Por favor recortar las firmas a los tamaños de las firmas, pueden usar Paint o el mismo WhatsApp para realizar el recorte (<a href="https://www.youtube.com/watch?v=fcaeUdxpZVI&ab_channel=webscomgt">Click Aquí video para realizar recorte con paint</a>.)
+
+							</li>
+
+							<li>
+							<strong>4).</strong> Debe mirar obligatoriamente el siguiente <strong>video instructivo</strong> de la universidad para no tener dificultades en su <strong>inscripción</strong> (<a href="https://www.youtube.com/watch?v=N7yxUvfPAL4&feature=youtu.be&ab_channel=Lenynflores">Click Aquí Video Inscripción evaluación virtual</a>)
+							</li>
+							<li>
+							<strong>5).</strong> <br>
+							<strong>******************************IMPORTANTE**************************************************</strong>
+							<br>
+							INGRESE AL <strong>SISTEMA VIRTUAL DE ADMISIÓN</strong> PARA TERMINAR SU INSCRIPCIÓN, Y ASÍ PODER SUBIR LAS FIRMAS (POSTULANTE Y APODERADO EN CASO SEA MENOR DE EDAD),Y SU DOCUMENTO PDF (declaración jurada COVID y certificado de estudios).
+							<br>
+							USUARIO:<strong>'.$numerodocumento.'</strong><br>
+							CONTRASEÑA:<strong>'.$clave.'</strong>
+							<br> --> <a href="https://examen.admisionunajma.pe/zetadmision/zet/index.php">
+							CLICK AQUÍ SISTEMA VIRTUAL DE ADMISIÓN UNAJMA
+							</a> <-- 
+							<br>
+							<strong>******************************************************************************************</strong>
+							</li>
+						</ul>
+					</td>
+				</tr>			
+			</table>
+			<br>				
+			<table>
+				<tr>
+				  <td>
+						Cualquier consulta, comunicarse con nosotros a los n&uacute;mero: 
+						<strong> 991828881, 916331094, 985951660 </strong>						
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+						<br>
+						Atentamente					
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+						<br>
+						<strong>Oficina Central de Admisi&oacute;n</strong>
+				  </td>
+				</tr>
+			</table>
+			</body>
+			</html>
+			';
+
+
+	// CASO CONTRARIO. EN EL CASO DE QUE EL PROCESO NO SEA TRASLADOS
+	}else {
+
+		$cuerpo = '
 		<html>
 		<head>
 			  <title>EXAMEN DE ADMISION</title>
@@ -106,7 +208,7 @@
 							<strong>6).</strong> <br>
 							<strong>******************************IMPORTANTE**************************************************</strong>
 							<br>
-							INGRESE AL <strong>SISTEMA VIRTUAL DE ADMISIÓN</strong> PARA TERMINAR SU INSCRIPCIÓN, Y ASÍ PODER SUBIR LAS FIRMAS (POSTULANTE Y APODERADO EN CASO SEA MENOR DE EDAD),Y SU DOCUMENTO PDF (declaración jurada COVID y constancia de quinto de secundaria).
+							INGRESE AL <strong>SISTEMA VIRTUAL DE ADMISIÓN</strong> PARA TERMINAR SU INSCRIPCIÓN, Y ASÍ PODER SUBIR LAS FIRMAS (POSTULANTE Y APODERADO EN CASO SEA MENOR DE EDAD),Y SU DOCUMENTO PDF (declaración jurada COVID y certificado de estudios).
 							<br>
 							USUARIO:<strong>'.$numerodocumento.'</strong><br>
 							CONTRASEÑA:<strong>'.$clave.'</strong>
@@ -116,11 +218,7 @@
 							<br>
 							<strong>******************************************************************************************</strong>
 							</li>
-							<li>
-							<strong>7).</strong> Debe descargar e instalar obligatoriamente este programa en el ordenador donde va a rendir su evaluación virtual <a href="http://www.mediafire.com/file/emxtxu6jx2srsg9/spv4_unajmav4.rar/file">DESCARGA PROGRAMA CONTROL UNAJMA V4</a>
-							</li>
-							<li>
-							<strong>8).</strong> Después de culminar todas las indicaciones hasta terminar de realizar su inscripción, debe contar a la mano con su <strong>CONSTANCIA DE INSCRIPCIÓN</strong> impreso a colores. Está constancia de inscripción es prueba de que usted terminó de realizar su inscripción satisfactoriamente. Por lo que deberá esperar pendiente a su correo electrónico, las indicaciones para el día del examen de la UNIVERSIDAD NACIONAL JOSÉ MARÍA ARGUEDAS. <br>
+							<strong>7).</strong> Después de culminar todas las indicaciones hasta terminar de realizar su inscripción, debe contar a la mano con su <strong>CONSTANCIA DE INSCRIPCIÓN</strong> impreso a colores. Está constancia de inscripción es prueba de que usted terminó de realizar su inscripción satisfactoriamente. Por lo que deberá esperar pendiente a su correo electrónico, las indicaciones para el día del examen de la UNIVERSIDAD NACIONAL JOSÉ MARÍA ARGUEDAS. <br>
 							Así mismo, también puede unirse al grupo de Whatsapp para conocer a sus futuros compañeros, resolver dudas, o para estar al tanto de las indicaciones que la oficina de admisión de la universidad puede estar ofreciendoles. <a href="https://chat.whatsapp.com/GXSLVqtUghT1HwhJ4VV760">CLICK AQUÍ Grupo Whatsapp Examen unjam - admision</a>
 							</li>
 						</ul>
@@ -151,6 +249,10 @@
 			</body>
 			</html>
 			';
+		
+	}
+	
+	
 	
 		$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
 		$cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";

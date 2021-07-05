@@ -295,7 +295,7 @@
             <small>(Pago de inscripcion en el banco de la nación)</small>
         </td>
         <td>     
-        	<input type='file' id="imgInp" name="imgInp" class="form-control validar" autocomplete="off" autocapitalize="words"  value=""  placeholder="Seleccione foto voucher" aria-describedby="imgInp-message" style=" border-radius: 0;
+        	<input type='file' accept='image/*' id="imgInp" name="imgInp" class="form-control validar" autocomplete="off" autocapitalize="words"  value=""  placeholder="Seleccione foto voucher" aria-describedby="imgInp-message" style=" border-radius: 0;
     -webkit-box-shadow: none!important;
     box-shadow: none!important;
     color: #ffffff;
@@ -313,7 +313,7 @@
             </strong>        
         </td>
         <td>     
-        	<input type='file' id="imgEst" name="imgEst" class="form-control validar" autocomplete="off" autocapitalize="words"  value=""  placeholder="Seleccione foto estudiante" aria-describedby="imgInp-message" style=" border-radius: 0;
+        	<input type='file' accept='image/*' id="imgEst" name="imgEst" class="form-control validar" autocomplete="off" autocapitalize="words"  value=""  placeholder="Seleccione foto estudiante" aria-describedby="imgInp-message" style=" border-radius: 0;
     -webkit-box-shadow: none!important;
     box-shadow: none!important;
     color: #ffffff;
@@ -330,7 +330,7 @@
             </strong>        
         </td>
         <td>     
-        	<input type='file' id="imgDni" name="imgDni" class="form-control validar" autocomplete="off" autocapitalize="words"  value=""  placeholder="Seleccione foto dni" aria-describedby="imgDni-message" style=" border-radius: 0;
+        	<input type='file' accept='image/*' id="imgDni" name="imgDni" class="form-control validar" autocomplete="off" autocapitalize="words"  value=""  placeholder="Seleccione foto dni" aria-describedby="imgDni-message" style=" border-radius: 0;
     -webkit-box-shadow: none!important;
     box-shadow: none!important;
     color: #ffffff;

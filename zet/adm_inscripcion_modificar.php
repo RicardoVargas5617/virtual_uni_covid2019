@@ -176,6 +176,24 @@ $vsqldepartamento="SELECT departamento,descripcion FROM mae_ubigeo WHERE provinc
     </tr>
     <tr>
         <td>
+            <strong>CONTACTO:</strong>								
+        </td>
+        <td>            
+            <h2>
+                <?php echo  substr($telefono,0,3) . " - " . substr($telefono,3,3) . " - ". substr($telefono,6,9) ;  ?>
+            </h2>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <strong>Celular/Fijo:</strong>								
+        </td>
+        <td>            
+            <input name="txtTelefono" id="txtTelefono" type="text" value="<?php echo $telefono?>" style="width: 60%">
+        </td>
+    </tr>
+    <tr>
+        <td>
             <strong>Fec. Nacimiento:</strong>								
         </td>
         <td>
@@ -238,14 +256,7 @@ $vsqldepartamento="SELECT departamento,descripcion FROM mae_ubigeo WHERE provinc
             <input name="txtDireccion" id="txtDireccion" type="text" value="<?php echo $direccion?>" style="width: 60%">
         </td>
     </tr>
-    <tr>
-        <td>
-            <strong>Celular/Fijo:</strong>								
-        </td>
-        <td>            
-            <input name="txtTelefono" id="txtTelefono" type="text" value="<?php echo $telefono?>" style="width: 60%">
-        </td>
-    </tr>
+    
     <!--
     <tr>
         <td>
@@ -521,6 +532,47 @@ $vsqldepartamento="SELECT departamento,descripcion FROM mae_ubigeo WHERE provinc
     <?php mysqli_close($cn);?>
 </table>
 </form>
+
+<!-- INICIO -->
+<style>
+    .btn-fijo{
+        background: rgb(2,0,36);
+        background: radial-gradient(circle, rgba(2,0,36,1) 21%, rgba(9,9,121,1) 60%, rgba(0,212,255,1) 100%);
+        border: 1px solid transparent;
+        border-radius: 10px;
+
+        padding: 4px;
+        position: fixed;
+        right:35px;
+        bottom:50px;
+    }
+
+    .btn-fijo a{
+        font-size: 1.4rem;
+        text-align: center;
+        outline: none;
+        text-decoration: none;
+        color: white;
+    }
+    .btn-fijo a:hover {
+        color: #D1BCE3;
+    }
+</style>
+<!-- MODAL FIJO EN LA PÁGIAN DE MODIFICAR -->
+<div class="btn-fijo">
+    <?php
+
+        $tipex2 = 'K' . $proceso . $postulante ;
+        $tipex2 = base64_encode(base64_encode($tipex2));
+        $dir_env = GL_DIR_WS_HTTP_APP."zet/admi_enviar_email_examen_usuario.php?clave=".$tipex2;
+    ?>
+    <a href="javascript:ventanaSecundaria('<?php echo $dir_env; ?>')" class="btn btn-ligh" >
+        ENVIAR :D
+        <i class="fa fa-envelope" style=""></i>
+    </a>
+</div>
+<!--  FIN  -->
+
 <script>$('#cboEscuelaModalidad').css('width','100%')</script>
 <script>$('#cboDepartamento').css('width','100%')</script>
 <script>$('#cboProvincia').css('width','100%')</script>
